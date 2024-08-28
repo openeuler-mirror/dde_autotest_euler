@@ -15,8 +15,10 @@ class AssertMethod(Assert):
 
     @classmethod
     def assert_image_exist_in_dde(cls, img_name, rate=0.8):
+        """断言图像存在于dde界面中"""
         cls.assert_image_exist(f"{config.ASSERT_RES}/{img_name}", rate=rate)
 
     @classmethod
     def assert_image_not_exist_in_dde(cls, img_name, rate=0.8):
+        """断言图像不存在于dde界面中"""
         cls.assert_image_not_exist(f"{config.ASSERT_RES}/{img_name}", rate=rate)
