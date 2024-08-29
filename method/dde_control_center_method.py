@@ -48,10 +48,15 @@ class DdeControlCenterMethod(BaseMethod):
         pylinuxauto.input_message(view_name)
         sleep(3)
         pylinuxauto.enter()
+        sleep(1)
 
     def dde_control_center_method_click_edit_btn_in_system_language(self):
         """点击 系统语言 列表旁边的编辑按钮"""
         self.dde_control_center_method_click_by_attr("Btn_dcommandlinkbutton")
+
+    def dde_control_center_method_click_automatic_login_btn_by_attr(self):
+        """点击 账户 视图下的 自动登录 按钮"""
+        self.dde_control_center_method_click_by_attr("Btn_自动登录")
 
 
 if __name__ == "__main__":

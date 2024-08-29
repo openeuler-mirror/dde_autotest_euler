@@ -9,6 +9,7 @@ from time import sleep
 from funnylog2.config import config as funnylog2_config
 
 from config import config
+from method.base_method import BaseMethod
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
 from youqu3 import log
@@ -62,7 +63,7 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         self.dde_control_center_method_click_edit_btn_in_system_language()
         self.dde_control_center_click_delete_btn_by_img()
 
-    def dde_method_add_account_by_control_center(self):
+    def dde_method_add_common_account_by_control_center(self):
         """在控制中心中添加新的账户 test"""
         self.dde_dock_method_click_control_center_btn_by_attr()
         sleep(6)
@@ -88,9 +89,61 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         pylinuxauto.enter()
         sleep(5)
 
+    def dde_method_add_root_account_by_control_center(self):
+        """在控制中心中添加新的账户 test"""
+        self.dde_dock_method_click_control_center_btn_by_attr()
+        sleep(6)
+        self.dde_control_center_enter_view_by_search_box("zhanghu")
+        self.dde_control_center_method_click_by_attr("Btn_创建帐户")
+        self.dde_control_center_method_click_by_attr("标准用户")
+        self.dde_control_center_method_click_by_attr("管理员")
+        self.dde_control_center_method_click_by_attr("Editable_usernameedit")
+        pylinuxauto.input_message("test")
+        sleep(2)
+        pylinuxauto.tab()
+        pylinuxauto.input_message("test")
+        sleep(2)
+        pylinuxauto.tab()
+        pylinuxauto.input_message(self.account_massage)
+        sleep(3)
+        pylinuxauto.tab()
+        pylinuxauto.tab()
+        pylinuxauto.input_message(self.account_massage)
+        sleep(3)
+        self.dde_control_center_method_click_by_attr("Btn_创建")
+        pylinuxauto.input_message(self.account_massage)
+        sleep(3)
+        pylinuxauto.enter()
+        sleep(5)
+
     def dde_method_delete_test_account_by_control_center(self):
         """在控制中心中将新添加的账户test删除"""
         self.dde_control_center_method_click_by_attr("test")
         self.dde_control_center_method_click_by_attr("Btn_删除帐户")
         self.dde_control_center_method_click_by_attr("Btn_删除")
         sleep(5)
+
+    def dde_method_change_account_password_by_control_center(self):
+        self.dde_control_center_enter_view_by_search_box("xiugaimima")
+        self.dde_control_center_method_click_by_attr("Btn_修改密码")
+        self.dde_control_center_method_click_by_attr("Editable_oldpasswordedit")
+        pylinuxauto.input_message(BaseMethod.account_massage)
+        self.dde_control_center_method_click_by_attr("Editable_newpasswordedit")
+        pylinuxauto.input_message(BaseMethod.change_password)
+        self.dde_control_center_method_click_by_attr("Editable_repeatpasswordedit")
+        pylinuxauto.input_message(BaseMethod.change_password)
+        self.dde_control_center_method_click_by_attr("Btn_保存")
+
+    def dde_method_reset_account_password_from_change_password_by_control_center(self):
+        self.dde_control_center_method_click_by_attr("Btn_修改密码")
+        self.dde_control_center_method_click_by_attr("Editable_oldpasswordedit")
+        pylinuxauto.input_message(BaseMethod.change_password)
+        self.dde_control_center_method_click_by_attr("Editable_newpasswordedit")
+        pylinuxauto.input_message(BaseMethod.account_massage)
+        self.dde_control_center_method_click_by_attr("Editable_repeatpasswordedit")
+        pylinuxauto.input_message(BaseMethod.account_massage)
+        self.dde_control_center_method_click_by_attr("Btn_保存")
+
+
+if __name__ == "__main__":
+    DdeMethod().dde_method_add_root_account_by_control_center()

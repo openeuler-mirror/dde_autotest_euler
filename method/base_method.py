@@ -15,6 +15,7 @@ from config import config
 class BaseMethod:
     dde_control_center_path = "/dde-control-center"
     account_massage = "uostest12#$"
+    change_password = "testpass12#$"
 
     """应用的方法基类"""
 
