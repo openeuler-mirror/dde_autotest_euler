@@ -4,14 +4,20 @@
 :Author:uos
 :Date  :2024/08/22 13:15:47
 """
+
 from funnylog2.config import config as funnylog2_config
+
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
 from youqu3.gui import pylinuxauto
 from config import config
 
+
 class BaseMethod:
+    dde_control_center_path = "/dde-control-center"
+    account_massage = "uostest12#$"
 
     """应用的方法基类"""
+
     def dde_method_click_by_ocr(self, text):
         """通过ocr识别点击"""
         pylinuxauto.find_element_by_ocr(text).click()
