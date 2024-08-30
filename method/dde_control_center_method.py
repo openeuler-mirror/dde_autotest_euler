@@ -58,6 +58,15 @@ class DdeControlCenterMethod(BaseMethod):
         """点击 账户 视图下的 自动登录 按钮"""
         self.dde_control_center_method_click_by_attr("Btn_自动登录")
 
+    def dde_control_center_method_click_reset_password_btn_by_attr(self):
+        """点击 账户 视图下非当前账户的 重设密码 按钮"""
+        self.dde_control_center_method_click_by_attr("Btn_重设密码")
+
+    def dde_control_center_method_reduce_password_effective_time(self):
+        """账户视图下，减少账户密码有效时间"""
+        self.dde_control_center_method_click_by_attr("Editable_dspinboxchilddlineedit")
+        pylinuxauto.enter()
+
 
 if __name__ == "__main__":
     sleep(3)

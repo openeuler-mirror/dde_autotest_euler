@@ -123,7 +123,8 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         self.dde_control_center_method_click_by_attr("Btn_删除")
         sleep(5)
 
-    def dde_method_change_account_password_by_control_center(self):
+    def dde_method_change_current_account_password_by_control_center(self):
+        """在控制中心中修改当前用户密码"""
         self.dde_control_center_enter_view_by_search_box("xiugaimima")
         self.dde_control_center_method_click_by_attr("Btn_修改密码")
         self.dde_control_center_method_click_by_attr("Editable_oldpasswordedit")
@@ -134,7 +135,8 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         pylinuxauto.input_message(BaseMethod.change_password)
         self.dde_control_center_method_click_by_attr("Btn_保存")
 
-    def dde_method_reset_account_password_from_change_password_by_control_center(self):
+    def dde_method_reset_current_account_password_from_change_password_by_control_center(self):
+        """在控制中心中将修改的当前用户密码重置为修改前的密码"""
         self.dde_control_center_method_click_by_attr("Btn_修改密码")
         self.dde_control_center_method_click_by_attr("Editable_oldpasswordedit")
         pylinuxauto.input_message(BaseMethod.change_password)
@@ -144,6 +146,30 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         pylinuxauto.input_message(BaseMethod.account_massage)
         self.dde_control_center_method_click_by_attr("Btn_保存")
 
+    def dde_method_change_other_account_password_by_control(self):
+        """在控制中心中修改非当前用户密码"""
+        self.dde_control_center_method_click_reset_password_btn_by_attr()
+        self.dde_control_center_method_click_by_attr("Editable_newpasswordedit")
+        pylinuxauto.input_message(BaseMethod.change_password)
+        sleep(3)
+        self.dde_control_center_method_click_by_attr("Editable_repeatpasswordedit")
+        pylinuxauto.input_message(BaseMethod.change_password)
+        sleep(3)
+        self.dde_control_center_method_click_by_attr("Btn_保存")
+        sleep(5)
+
+    def dde_method_reset_other_account_password_from_change_password_by_control_center(self):
+        """在控制中心中将修改的非当前用户密码重置为修改前的密码（该方法主要用于对修改密码的重置，修改密码方法包含鉴权，因此本方法内无鉴权操作）"""
+        self.dde_control_center_method_click_reset_password_btn_by_attr()
+        self.dde_control_center_method_click_by_attr("Editable_newpasswordedit")
+        pylinuxauto.input_message(BaseMethod.account_massage)
+        sleep(3)
+        self.dde_control_center_method_click_by_attr("Editable_repeatpasswordedit")
+        pylinuxauto.input_message(BaseMethod.account_massage)
+        sleep(3)
+        self.dde_control_center_method_click_by_attr("Btn_保存")
+
 
 if __name__ == "__main__":
-    DdeMethod().dde_method_add_root_account_by_control_center()
+    sleep(3)
+    DdeMethod().dde_method_reset_other_account_password_from_change_password_by_control_center()
