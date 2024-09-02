@@ -3,12 +3,12 @@ from method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
-    def test_euler_1271035_1(self):
+    def test_dde_1271035_1(self):
         """在控制中心中新建标准账户"""
         DdeMethod().dde_method_add_common_account_by_control_center()
         self.assert_image_exist_in_dde("test_euler_1271035_1.png")
 
-    def test_euler_1271035_2(self):
+    def test_dde_1271035_2(self):
         """在控制中心中新建管理员账户"""
         DdeMethod().dde_method_add_root_account_by_control_center()
         self.assert_image_exist_in_dde("test_euler_1271035_2.png")
