@@ -16,7 +16,7 @@ class TestDdeCase(BaseCase):
         sleep(3)
         pylinuxauto.enter()
         sleep(3)
-        self.assert_image_not_exist_in_dde("test_euler_1271037.png")
+        self.assert_image_not_exist_in_dde("test_dde_1271037.png")
 
     def teardown_method(self):
         """将修改的当前账户密码重新设置为之前的密码"""
