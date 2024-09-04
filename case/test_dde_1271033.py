@@ -10,8 +10,8 @@ class TestDdeCase(BaseCase):
         DdeMethod().dde_dock_method_click_control_center_btn_by_attr()
         sleep(6)
         DdeControlCenterMethod().dde_control_center_enter_view_by_search_box("zhanghu")
-        self.assert_image_exist_in_dde("test_euler_1271033_1")
-        self.assert_image_exist_in_dde("test_euler_1271033_2")
+        self.assert_image_exist_in_dde("test_dde_1271033_1")
+        self.assert_image_exist_in_dde("test_dde_1271033_2")
 
     def teardown_method(self):
         """关闭控制中心窗口"""

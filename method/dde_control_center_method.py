@@ -65,6 +65,18 @@ class DdeControlCenterMethod(BaseMethod):
         self.dde_control_center_method_click_by_attr("Editable_dspinboxchilddlineedit")
         pylinuxauto.enter()
 
+    def dde_control_center_method_click_add_dsl_btn(self):
+        """在网络的dsl视图中点击添加按钮"""
+        self.dde_control_center_method_click_by_attr("Btn_创建pppoe连接")
+
+    def dde_control_center_method_click_time_synchronization_btn_by_attr(self):
+        """在控制中心的 时间设置 模块点击 时间同步 按钮"""
+        self.dde_control_center_method_click_by_attr("Btn_自动同步配置")
+
+    def dde_control_center_method_click_time_setting_by_attr(self):
+        """在时间与日期模块中点击 时间设置"""
+        self.dde_control_center_method_click_by_attr("时间设置")
+
 
 if __name__ == "__main__":
     sleep(3)

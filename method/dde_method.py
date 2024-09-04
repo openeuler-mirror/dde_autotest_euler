@@ -84,6 +84,7 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         pylinuxauto.input_message(self.account_massage)
         sleep(3)
         self.dde_control_center_method_click_by_attr("Btn_创建")
+        sleep(1)
         pylinuxauto.input_message(self.account_massage)
         sleep(3)
         pylinuxauto.enter()
@@ -111,6 +112,7 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         pylinuxauto.input_message(self.account_massage)
         sleep(3)
         self.dde_control_center_method_click_by_attr("Btn_创建")
+        sleep(1)
         pylinuxauto.input_message(self.account_massage)
         sleep(3)
         pylinuxauto.enter()
@@ -159,7 +161,7 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         sleep(5)
 
     def dde_method_reset_other_account_password_from_change_password_by_control_center(self):
-        """在控制中心中将修改的非当前用户密码重置为修改前的密码（该方法主要用于对修改密码的重置，修改密码方法包含鉴权，因此本方法内无鉴权操作）"""
+        """在控制中心中将修改的非当前用户密码重置为修改前的密码（该方法主要用于对修改密码的重置，方法内无鉴权操作）"""
         self.dde_control_center_method_click_reset_password_btn_by_attr()
         self.dde_control_center_method_click_by_attr("Editable_newpasswordedit")
         pylinuxauto.input_message(BaseMethod.account_massage)
@@ -169,7 +171,80 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
         sleep(3)
         self.dde_control_center_method_click_by_attr("Btn_保存")
 
+    def dde_method_change_resolution_by_control_center(self):
+        """在控制中心中修改屏幕分辨率"""
+        self.dde_control_center_enter_view_by_search_box("xianshi")
+        self.dde_control_center_method_click_by_attr("1920×1080")
+        self.dde_control_center_method_click_by_attr("1280×800")
+        sleep(1)
+        self.dde_control_center_method_click_by_attr("Btn_保存")
+        sleep(2)
+
+    def dde_method_reset_resolution_by_control_center(self):
+        """在控制中心中将修改的分辨率调回1920x1080"""
+        self.dde_control_center_method_click_by_attr("1280×800")
+        self.dde_control_center_method_click_by_attr("1920×1080")
+        sleep(1)
+        self.dde_control_center_method_click_by_attr("Btn_保存")
+        sleep(2)
+
+    def dde_method_add_network_dsl_by_control_center(self):
+        """在控制中心的 网络 模块中添加DSL"""
+        self.dde_control_center_enter_view_by_search_box("dsl")
+        self.dde_control_center_method_click_add_dsl_btn()
+        self.dde_control_center_method_click_by_attr("Btn_自动连接")
+        self.dde_control_center_method_click_by_attr("Editable_用户名")
+        pylinuxauto.input_message("test")
+        sleep(2)
+        self.dde_control_center_method_click_by_attr("Editable_密码")
+        pylinuxauto.input_message(BaseMethod.account_massage)
+        sleep(3)
+        self.dde_control_center_method_click_by_attr("Btn_保 存")
+
+    def dde_method_delete_network_dsl_by_control_center(self):
+        """在控制中心的网络DSL模块中删除添加的测试DSL连接"""
+        self.dde_method_click_by_img("dsl_connection_details_btn.png")
+        self.dde_control_center_method_click_by_attr("Btn_删 除")
+        sleep(1)
+        self.dde_control_center_method_click_by_attr("Btn_删 除_1")
+        sleep(2)
+
+    def dde_method_change_time_by_control_center(self):
+        """在控制中心中手动修改时间"""
+        self.dde_control_center_enter_view_by_search_box("shijianshezhi")
+        self.dde_control_center_method_click_time_synchronization_btn_by_attr()
+        self.dde_control_center_method_click_by_attr("TIME_HOUR_WIDGET")
+        pylinuxauto.backspace()
+        pylinuxauto.backspace()
+        pylinuxauto.input_message("12")
+        sleep(2)
+        self.dde_control_center_method_click_by_attr("TIME_MIN_WIDGET")
+        pylinuxauto.backspace()
+        pylinuxauto.backspace()
+        pylinuxauto.input_message("12")
+        sleep(2)
+        self.dde_control_center_method_click_by_attr("Btn_确定")
+
+    def dde_method_change_time_area_by_control_center(self):
+        """在控制中心中更改时区"""
+        self.dde_control_center_method_click_by_attr("时间日期")
+        self.dde_control_center_method_click_by_attr("时区列表")
+        self.dde_control_center_method_click_by_attr("Btn_修改系统时区")
+        sleep(2)
+        self.dde_control_center_method_click_by_attr("Editable_qlineedit")
+        pylinuxauto.input_message("New_York")
+        sleep(2)
+        pylinuxauto.enter()
+        self.dde_control_center_method_click_by_attr("Btn_确定")
+        sleep(2)
+
+    def dde_control_center_method_delete_other_time_area_by_control_center(self):
+        """删除时区列表多余的一个时区"""
+        self.dde_control_center_method_click_by_attr("Btn_时区列表")
+        self.dde_control_center_click_delete_btn_by_img()
+        sleep(1)
+
 
 if __name__ == "__main__":
     sleep(3)
-    DdeMethod().dde_method_reset_other_account_password_from_change_password_by_control_center()
+    DdeMethod().dde_control_center_method_click_by_attr("Btn_时区列表")
