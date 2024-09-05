@@ -17,10 +17,11 @@ from youqu3.gui import pylinuxauto
 from method.dde_dock_method import DdeDockMethod
 from method.dde_control_center_method import DdeControlCenterMethod
 from method.dde_launcher_method import DdeLauncherMethod
+from method.dde_browser_method import DdeBrowserMethod
 
 
 @log
-class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod):
+class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod, DdeBrowserMethod):
     """应用方法主类"""
 
     def dde_method_open_software_by_launcher(self, text):
