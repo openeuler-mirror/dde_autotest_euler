@@ -7,21 +7,22 @@
 
 from time import sleep
 from funnylog2.config import config as funnylog2_config
-
-from config import config
 from method.base_method import BaseMethod
+from method.dde_browser_method import DdeBrowserMethod
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
-from youqu3 import log
-from youqu3.gui import pylinuxauto
+from funnylog2 import log
+import pylinuxauto
 from method.dde_dock_method import DdeDockMethod
 from method.dde_control_center_method import DdeControlCenterMethod
 from method.dde_launcher_method import DdeLauncherMethod
-from method.dde_browser_method import DdeBrowserMethod
+from method.dde_font_manager_method import DdeFontManagerMethod
 
 
 @log
-class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod, DdeBrowserMethod):
+class DdeMethod(
+    DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod, DdeFontManagerMethod, DdeBrowserMethod
+):
     """应用方法主类"""
 
     def dde_method_open_software_by_launcher(self, text):
@@ -244,6 +245,13 @@ class DdeMethod(DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod, DdeBro
         self.dde_control_center_method_click_by_attr("Btn_时区列表")
         self.dde_control_center_click_delete_btn_by_img()
         sleep(1)
+
+    def dde_method_search_font_in_font_manager(self, fontname):
+        """在字体管理器中搜索字体"""
+        self.dde_font_manager_method_click_search_box_attr()
+        pylinuxauto.input_message(fontname)
+        sleep(3)
+        pylinuxauto.enter()
 
 
 if __name__ == "__main__":

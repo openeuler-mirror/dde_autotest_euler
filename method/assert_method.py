@@ -5,8 +5,7 @@
 :Date  :2024/08/22 13:15:47
 """
 
-from dbus.decorators import method
-from youqu3.assertx import Assert
+from pylinuxauto.assertx import Assert
 from config import config
 
 

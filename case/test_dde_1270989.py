@@ -1,7 +1,6 @@
 from case.base_case import BaseCase
 from method.dde_method import DdeMethod
-from youqu3 import sleep
-from method.dde_control_center_method import DdeControlCenterMethod
+from pylinuxauto import sleep
 
 
 class TestDdeCase(BaseCase):
