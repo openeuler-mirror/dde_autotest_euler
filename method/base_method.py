@@ -26,3 +26,7 @@ class BaseMethod:
     def dde_method_click_by_img(self, img_name):
         """通过图像识别点击"""
         pylinuxauto.find_element_by_image(f"{config.IMAGE_RES}/{img_name}").click()
+
+    def dde_method_right_click_by_ocr(self, text):
+        """通过ocr识别右键点击"""
+        pylinuxauto.find_element_by_ocr(text).right_click()
