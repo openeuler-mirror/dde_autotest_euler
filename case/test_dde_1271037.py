@@ -1,8 +1,8 @@
-from youqu3.gui import pylinuxauto
+import pylinuxauto
 from case.base_case import BaseCase
 from method.base_method import BaseMethod
 from method.dde_method import DdeMethod
-from youqu3 import sleep
+from pylinuxauto import sleep
 
 
 class TestDdeCase(BaseCase):

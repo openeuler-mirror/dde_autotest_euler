@@ -1,12 +1,8 @@
 from funnylog2.config import config as funnylog2_config
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
-
-from youqu3 import log
-from youqu3.gui import pylinuxauto
-from config import config
+import pylinuxauto
 from method.base_method import BaseMethod
-from method.dde_dock_method import DdeDockMethod
 
 
 class DdeLauncherMethod(BaseMethod):

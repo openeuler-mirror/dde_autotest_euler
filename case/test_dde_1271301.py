@@ -1,6 +1,5 @@
-import pytest
 from case.base_case import BaseCase
-from youqu3 import sleep
+from pylinuxauto import sleep
 from method.dde_method import DdeMethod
 
 
