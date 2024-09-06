@@ -9,6 +9,7 @@ from time import sleep
 from funnylog2.config import config as funnylog2_config
 from method.base_method import BaseMethod
 from method.dde_browser_method import DdeBrowserMethod
+from method.dde_editor_method import DdeEditorMethod
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
 from funnylog2 import log
@@ -21,7 +22,12 @@ from method.dde_font_manager_method import DdeFontManagerMethod
 
 @log
 class DdeMethod(
-    DdeDockMethod, DdeControlCenterMethod, DdeLauncherMethod, DdeFontManagerMethod, DdeBrowserMethod
+    DdeDockMethod,
+    DdeControlCenterMethod,
+    DdeLauncherMethod,
+    DdeFontManagerMethod,
+    DdeBrowserMethod,
+    DdeEditorMethod,
 ):
     """应用方法主类"""
 
@@ -252,6 +258,11 @@ class DdeMethod(
         pylinuxauto.input_message(fontname)
         sleep(3)
         pylinuxauto.enter()
+
+    def dde_editor_method_click_documents_in_pop_window_by_img(self):
+        """在文本编辑器的文件管理器弹窗中点击左侧 文档 目录"""
+        self.dde_method_click_by_ocr("系统盘")
+        self.dde_method_click_by_img("file_manager_left_view_documents.png")
 
 
 if __name__ == "__main__":
