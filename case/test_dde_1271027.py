@@ -18,6 +18,5 @@ class TestDdeCase(BaseCase):
     def teardown_method(self):
         """关闭控制中心窗口"""
         DdeMethod().dde_control_center_method_click_by_attr("test")
-        DdeMethod().dde_method_reset_other_account_password_from_change_password_by_control_center()
         DdeMethod().dde_method_delete_test_account_by_control_center()
         DdeMethod().dde_method_close_window()

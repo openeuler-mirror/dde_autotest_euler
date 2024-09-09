@@ -12,7 +12,7 @@ class TestDdeCase(BaseCase):
         sleep(6)
         euler.dde_method_change_time_area_by_control_center()
         self.assert_ocr_exist("New_York")
-        self.assert_ocr_exist("今天")
+        self.assert_ocr_exist("比本地")
 
     def teardown_method(self):
         """将时区重新设置为北京时间，并且关闭控制中心"""

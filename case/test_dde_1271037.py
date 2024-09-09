@@ -22,7 +22,7 @@ class TestDdeCase(BaseCase):
         """将修改的当前账户密码重新设置为之前的密码"""
         DdeMethod().dde_method_reset_current_account_password_from_change_password_by_control_center()
         DdeMethod().dde_control_center_method_click_automatic_login_btn_by_attr()
-        pylinuxauto.input_message(BaseMethod.account_massage)
+        pylinuxauto.input_message(BaseMethod.account_message)
         sleep(3)
         pylinuxauto.enter()
         sleep(3)

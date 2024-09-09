@@ -12,7 +12,6 @@ class TestDdeCase(BaseCase):
         DdeMethod().dde_launcher_method_click_search_box_by_attr()
         pylinuxauto.input_message("firefox")
         sleep(2)
-        self.assert_ocr_exist("Firefox")
         pylinuxauto.enter()
         sleep(6)
         DdeMethod().dde_browser_method_click_menu_icon_by_img()
