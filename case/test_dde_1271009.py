@@ -1,3 +1,5 @@
+from pylinuxauto.plugin import pylinuxauto
+
 from case.base_case import BaseCase
 from method.dde_method import DdeMethod
 from pylinuxauto import sleep

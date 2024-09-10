@@ -5,8 +5,12 @@
 :Date  :2024/08/22 13:15:47
 """
 
+from funnylog2 import logger
 from pylinuxauto.assertx import Assert
 from config import config
+from nocmd import Cmd
+
+from method.base_method import BaseMethod
 
 
 class AssertMethod(Assert):
@@ -83,3 +87,14 @@ class AssertMethod(Assert):
         """断言所有{{expect}}结果为真"""
         if not all(expect):
             raise AssertionError(f"<{expect}>不均为真")
+
+    @staticmethod
+    def assert_process_status(expect, app):
+        """
+         断言应用进程是否存在
+        :param expect: 进程期望结果 True /False
+        :param app: 应用名字
+        """
+        logger.info(f"断言应用进程状态{app}与期望{expect}是否相同")
+        if expect != BaseMethod().base_method_get_process_status(app):
+            raise AssertionError(f"断言应用进程状态{app}与期望{expect}不相同")
