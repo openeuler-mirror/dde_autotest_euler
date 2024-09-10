@@ -7,6 +7,8 @@
 
 from time import sleep
 from funnylog2.config import config as funnylog2_config
+from pylinuxauto import find_element_by_image
+
 from method.base_method import BaseMethod
 from method.dde_browser_method import DdeBrowserMethod
 from method.dde_editor_method import DdeEditorMethod
@@ -14,6 +16,7 @@ from method.dde_editor_method import DdeEditorMethod
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
 from funnylog2 import log
 import pylinuxauto
+from config import config
 from method.dde_dock_method import DdeDockMethod
 from method.dde_control_center_method import DdeControlCenterMethod
 from method.dde_launcher_method import DdeLauncherMethod
@@ -40,7 +43,7 @@ class DdeMethod(
 
     def dde_method_close_window(self):
         """关闭窗口"""
-        self.dde_method_click_by_img("close_window_btn.png")
+        self.base_method_click_by_img("close_window_btn.png")
 
     def dde_method_delete_keyboard_layout_in_control_center(self):
         """在控制中心的键盘布局视图删除除选中之外的布局"""
@@ -211,7 +214,7 @@ class DdeMethod(
 
     def dde_method_delete_network_dsl_by_control_center(self):
         """在控制中心的网络DSL模块中删除添加的测试DSL连接"""
-        self.dde_method_click_by_img("dsl_connection_details_btn.png")
+        self.base_method_click_by_img("dsl_connection_details_btn.png")
         self.dde_control_center_method_click_by_attr("Btn_删 除")
         sleep(1)
         self.dde_control_center_method_click_by_attr("Btn_删 除_1")
@@ -261,10 +264,19 @@ class DdeMethod(
 
     def dde_editor_method_click_documents_in_pop_window_by_img(self):
         """在文本编辑器的文件管理器弹窗中点击左侧 文档 目录"""
-        self.dde_method_click_by_ocr("系统盘")
-        self.dde_method_click_by_img("file_manager_left_view_documents.png")
+        self.base_method_click_by_ocr("系统盘")
+        self.base_method_click_by_img("file_manager_left_view_documents.png")
+
+    def dde_method_rename_file_in_pop_window_by_attr(self, filename):
+        """在弹出的文件保存窗口中对文件进行重命名并且保存"""
+        pylinuxauto.input_message(filename)
+        pylinuxauto.enter()
+        if find_element_by_image(f"{config.IMAGE_RES}/file_name_duplicates.png"):
+            self.dde_method_close_window()
+            self.dde_method_close_window()
+            print("文件名称重复，请输入其他文件名")
 
 
 if __name__ == "__main__":
     sleep(3)
-    DdeMethod().dde_control_center_method_click_by_attr("Btn_时区列表")
+    DdeMethod().dde_method_rename_file_in_pop_window_by_attr("old")
