@@ -1,6 +1,6 @@
 from time import sleep
 from funnylog2.config import config as funnylog2_config
-from pylinuxauto import find_element_by_ocr
+from config import config
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
 import pylinuxauto
@@ -35,17 +35,10 @@ class DdeEditorMethod(BaseMethod):
         pylinuxauto.find_element_by_ocr("退出").click()
 
     def dde_editor_method_close_tab_by_attr(self, tab_name):
-        """在文本编辑器中通过元素，右键关闭标签，并且选择保存（适用于修改，不适用于新建的标签）"""
+        """在文本编辑器中通过元素，通过右键关闭标签（适用于修改，不适用于新建的标签）"""
         self.dde_editor_method_right_click_by_attr(tab_name)
         sleep(1)
         pylinuxauto.select_menu(1)
-        sleep(1)
-        a = find_element_by_ocr("您是否要保存此文件")
-        if a is not None:
-            self.dde_editor_method_click_by_attr("保存")
-            sleep(1)
-        else:
-            sleep(1)
 
 
 if __name__ == "__main__":
