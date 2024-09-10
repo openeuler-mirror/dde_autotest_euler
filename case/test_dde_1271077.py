@@ -35,6 +35,8 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """关闭文本编辑器"""
-        DdeMethod().dde_editor_method_close_tab_by_attr("*test.txt")
+        pylinuxauto.ctrl_s()
+        sleep(1)
+        DdeMethod().dde_editor_method_close_tab_by_attr("test.txt")
         DdeMethod().dde_editor_method_quit_editor_by_ocr()
         DdeMethod().base_method_delete_file_in_documents_by_cmd("test.txt")
