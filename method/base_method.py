@@ -65,6 +65,10 @@ class BaseMethod:
         """通过给定名称在 文档 目录下删除文件"""
         Cmd.run(f"rm ~/Documents/{filename}")
 
+    def base_method_kill_process_by_cmd(self, process):
+        """通过命令关闭进程"""
+        Cmd.run(f"killall {process}")
+
     def base_method_get_process_status(cls, app: str, grep_list: str = None) -> bool:
         """
          获取进程状态
