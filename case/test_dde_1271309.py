@@ -5,7 +5,7 @@ import pylinuxauto
 
 
 class TestDdeCase(BaseCase):
-    def test_dde_1271313_1(self):
+    def test_dde_1271309_1(self):
         """在任务栏中打开启动器"""
         euler = DdeMethod()
         euler.dde_dock_method_click_launcher_btn_by_attr()
@@ -17,7 +17,7 @@ class TestDdeCase(BaseCase):
         self.assert_image_not_exist_in_dde("test_dde_1271309.png")
         sleep(3)
 
-    def test_dde_1271313_2(self):
+    def test_dde_1271309_2(self):
         """在任务栏中打开启动器"""
         pylinuxauto.win()
         sleep(1)
