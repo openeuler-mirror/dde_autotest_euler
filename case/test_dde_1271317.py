@@ -4,7 +4,7 @@ from method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
-    def test_dde_1271313_1(self):
+    def test_dde_1271317_1(self):
         """检查启动器的 全部分类 模块"""
         euler = DdeMethod()
         euler.dde_dock_method_click_launcher_btn_by_attr()
@@ -18,7 +18,7 @@ class TestDdeCase(BaseCase):
         sleep(1)
         self.assert_ocr_exist("搜索")
 
-    def test_dde_1271313_2(self):
+    def test_dde_1271317_2(self):
         """检查启动器 全部分类 视图中 系统管理 分类内容"""
         euler = DdeMethod()
         euler.dde_dock_method_click_launcher_btn_by_attr()
