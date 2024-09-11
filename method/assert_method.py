@@ -28,13 +28,13 @@ class AssertMethod(Assert):
 
     @staticmethod
     def assert_equal(expect, actual):
-        """判断预期值<{{expect}>与实际值<{{actual}>相等"""
+        """判断预期值<{{expect}}>与实际值<{{actual}}>相等"""
         if expect != actual:
             raise AssertionError(f"预期值<{expect}>与实际值<{actual}>不相等")
 
     @staticmethod
     def assert_not_equal(expect, actual):
-        """判断预期值<{{expect}>与实际值<{{actual}>不相等"""
+        """判断预期值<{{expect}}>与实际值<{{actual}}>不相等"""
         if expect == actual:
             raise AssertionError(f"预期值<{expect}>与实际值<{actual}>相等")
 
@@ -66,13 +66,13 @@ class AssertMethod(Assert):
 
     @staticmethod
     def assert_true(expect):
-        """断言{{expect}}结果为真"""
+        """断言<{{expect}}>结果为真"""
         if not expect:
             raise AssertionError(f"<{expect}>不为真")
 
     @staticmethod
     def assert_false(expect):
-        """断言{{expect}}结果为假"""
+        """断言<{{expect}}>结果为假"""
         if expect:
             raise AssertionError(f"<{expect}>不为假")
 
