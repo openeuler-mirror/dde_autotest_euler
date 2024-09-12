@@ -40,6 +40,11 @@ class DdeEditorMethod(BaseMethod):
         sleep(1)
         pylinuxauto.select_menu(1)
 
+    def dde_editor_method_close_tab_by_img(self):
+        """在文本编辑器中通过标签右边的关闭图表关闭当前标签"""
+        self.base_method_click_by_img("deepin_editor_close_tab_icon.png")
+        sleep(1)
+
 
 if __name__ == "__main__":
     sleep(3)
