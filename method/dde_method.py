@@ -268,15 +268,24 @@ class DdeMethod(
         self.base_method_click_by_img("file_manager_left_view_documents.png")
 
     def dde_method_rename_file_in_pop_window_by_attr(self, filename):
-        """在弹出的文件保存窗口中对文件进行重命名并且保存"""
+        """在弹出的文件保存窗口中对文件进行重命名并且保存,文件名需要包含后缀名，且文件名不可与文档目录下其他文件重复"""
+        pylinuxauto.find_element_by_attr_path("/dde-desktop/file_name_edit").click()
+        pylinuxauto.ctrl_a()
         pylinuxauto.input_message(filename)
-        pylinuxauto.enter()
-        if find_element_by_image(f"{config.IMAGE_RES}/file_name_duplicates.png"):
-            self.dde_method_close_window()
-            self.dde_method_close_window()
-            print("文件名称重复，请输入其他文件名")
+        self.dde_methode_click_save_btn_in_pop_window()
+
+    def dde_method_rename_file_same_name_in_pop_window_by_attr(self, filename):
+        """在弹出的文件保存窗口中将文件重命名为重复名称并且点击保存，方法输入的名称为目标文件名称"""
+        pylinuxauto.find_element_by_attr_path("/dde-desktop/file_name_edit").click()
+        pylinuxauto.ctrl_a()
+        pylinuxauto.input_message(filename)
+        self.dde_methode_click_save_btn_in_pop_window()
+
+    def dde_methode_click_save_btn_in_pop_window(self):
+        """在弹出的文件保存窗口中点击保存"""
+        pylinuxauto.find_element_by_attr_path("/dde-desktop/statusBar/保 存").click()
 
 
 if __name__ == "__main__":
     sleep(3)
-    DdeMethod().dde_method_rename_file_in_pop_window_by_attr("old")
+    DdeMethod().dde_methode_click_save_btn_in_pop_window()
