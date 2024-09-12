@@ -52,8 +52,6 @@ sudo apt install -y libvirt0 libvirt-daemon qemu virt-manager bridge-utils libvi
 进入虚拟机后，由于欧拉镜像不自带gui界面，因此我们需要通过以下操作自行安装gui
 
 ```bash
-进入/etc/yum.repos.d/目录，在目录下依次运行以下命令
-yum update
 yum install dde
 systemctl set-default graphical.target
 reboot
