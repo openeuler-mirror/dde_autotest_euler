@@ -11,6 +11,7 @@ from pylinuxauto import find_element_by_image
 
 from method.base_method import BaseMethod
 from method.dde_browser_method import DdeBrowserMethod
+from method.dde_device_manager_method import DdeDeviceManagerMethod
 from method.dde_editor_method import DdeEditorMethod
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
@@ -31,6 +32,7 @@ class DdeMethod(
     DdeFontManagerMethod,
     DdeBrowserMethod,
     DdeEditorMethod,
+    DdeDeviceManagerMethod,
 ):
     """应用方法主类"""
 
@@ -284,6 +286,18 @@ class DdeMethod(
     def dde_methode_click_save_btn_in_pop_window(self):
         """在弹出的文件保存窗口中点击保存"""
         pylinuxauto.find_element_by_attr_path("/dde-desktop/statusBar/保 存").click()
+
+    def dde_device_manager_method_export_file_by_attr(self, module):
+        """在设备管理器中导出设备信息"""
+        """
+        module:目标模块的名称，概况，处理器，主板......
+        """
+        pylinuxauto.find_element_by_attr_path(f"/deepin-devicemanager/{module}").right_click()
+        pylinuxauto.select_menu(1)
+        sleep(2)
+        self.dde_editor_method_click_documents_in_pop_window_by_img()
+        self.dde_methode_click_save_btn_in_pop_window()
+        sleep(2)
 
 
 if __name__ == "__main__":
