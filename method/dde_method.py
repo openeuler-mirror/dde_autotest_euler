@@ -288,4 +288,3 @@ class DdeMethod(
 
 if __name__ == "__main__":
     sleep(3)
-    DdeMethod().dde_methode_click_save_btn_in_pop_window()
