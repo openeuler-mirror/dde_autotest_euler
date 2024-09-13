@@ -21,7 +21,7 @@ class TestDdeCase(BaseCase):
         pylinuxauto.enter()
         pylinuxauto.input_message("a")
         euler.dde_editor_method_click_menu_btn_by_attr()
-        euler.dde_methode_click_save_btn_in_pop_window()
+        euler.dde_editor_method_choose_save_option_by_ocr()
         self.assert_image_exist_in_dde("test_dde_1271091.png")
 
     def test_dde_1271091_2(self):
