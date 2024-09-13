@@ -25,8 +25,12 @@ class DdeEditorMethod(BaseMethod):
         pylinuxauto.find_element_by_ocr("打开文件").click()
 
     def dde_editor_method_choose_save_as_option_by_ocr(self):
-        """在文本编辑器的菜单栏中选择 另存为 选项"""
+        """在文本编辑器的的菜单栏中选择 另存为 选项"""
         pylinuxauto.find_element_by_ocr("另存为").click()
+
+    def dde_editor_method_choose_save_option_by_ocr(self):
+        """在文本编辑器的的菜单栏中选择 保存 选项"""
+        pylinuxauto.find_element_by_ocr("保存").click()
 
     def dde_editor_method_quit_editor_by_ocr(self):
         """通过菜单栏退出文本编辑器"""
