@@ -6,6 +6,7 @@
 """
 
 import os
+import re
 import pylinuxauto
 from funnylog2 import logger
 from funnylog2.config import config as funnylog2_config
@@ -42,7 +43,21 @@ class BaseMethod:
 
     def base_method_click_by_img(self, img_name):
         """通过图像识别点击"""
-        pylinuxauto.find_element_by_image(f"{config.IMAGE_RES}/{img_name}").click()
+        all_pngs = set()
+        img_name_tmp = img_name.split('.')[0]
+
+        for tmp in os.listdir(config.IMAGE_RES):
+            if re.search(f'^{img_name_tmp}\d*.png', tmp):
+                all_pngs.add(tmp)
+        for img_tmp in all_pngs:
+            try:
+                pylinuxauto.find_element_by_image(f"{config.IMAGE_RES}/{img_tmp}").click()
+                break
+            except pylinuxauto.exceptions.TemplateElementNotFound:
+                pass
+        else:
+            raise pylinuxauto.exceptions.TemplateElementNotFound(img_name)
+
 
     def base_method_double_click_by_img(self, img_name):
         """通过图像识别双击"""
