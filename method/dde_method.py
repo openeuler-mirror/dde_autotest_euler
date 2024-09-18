@@ -13,6 +13,7 @@ from method.base_method import BaseMethod
 from method.dde_browser_method import DdeBrowserMethod
 from method.dde_device_manager_method import DdeDeviceManagerMethod
 from method.dde_editor_method import DdeEditorMethod
+from method.deepin_log_viewer_method import DeepinLogViewerMethod
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
 from funnylog2 import log
@@ -33,6 +34,7 @@ class DdeMethod(
     DdeBrowserMethod,
     DdeEditorMethod,
     DdeDeviceManagerMethod,
+    DeepinLogViewerMethod,
 ):
     """应用方法主类"""
 
@@ -298,6 +300,30 @@ class DdeMethod(
         self.dde_editor_method_click_documents_in_pop_window_by_img()
         self.dde_methode_click_save_btn_in_pop_window()
         sleep(2)
+
+    def deepin_log_viewer_method_export_log_by_attr(self, log_name, log_type):
+        """
+        输入需要导出的日志名称以及类型，通过元素右键点击日志进行导出，注意不包括启动日志
+        log_name:Xorg Log,Application Log,Boot-Shutdown Event
+        log_type:TEXT (*.txt),Doc (*.doc),Xls (*.xls),Html (*.html)
+        """
+        self.deepin_log_viewer_method_click_by_attr(log_name)
+        sleep(2)
+        self.deepin_log_viewer_method_click_export_btn_by_attr()
+        self.dde_editor_method_click_documents_in_pop_window_by_img()
+        pylinuxauto.find_element_by_attr_path("/dde-desktop/TEXT (*.txt)").click()
+        sleep(1)
+        pylinuxauto.find_element_by_attr_path(f"/dde-desktop/{log_type}").click()
+        self.dde_methode_click_save_btn_in_pop_window()
+
+    def deepin_log_viewer_method_export_all_log_by_attr(self):
+        """导出所有的日志"""
+        self.base_method_click_by_img("deepin_log_viewer_export_all_log_icon.png")
+        sleep(2)
+        self.deepin_log_viewer_input_root_password()
+        self.dde_editor_method_click_documents_in_pop_window_by_img()
+        self.dde_methode_click_save_btn_in_pop_window()
+        sleep(1)
 
 
 if __name__ == "__main__":

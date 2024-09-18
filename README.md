@@ -45,6 +45,8 @@ sudo apt install -y libvirt0 libvirt-daemon qemu virt-manager bridge-utils libvi
 
 也可直接在启动器中打开“虚拟系统管理器”，在UI界面进行配置安装欧拉虚拟机，步骤很简单，尽量多给虚拟机分配资源即可
 
+## 注意，欧拉虚拟机密码设置为uostest12#$
+
 ![avata](./image/3.png)
 
 （3）配置欧拉虚拟机环境
