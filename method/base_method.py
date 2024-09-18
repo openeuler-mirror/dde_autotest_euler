@@ -65,6 +65,10 @@ class BaseMethod:
         """通过给定名称在 文档 目录下删除文件"""
         Cmd.run(f"rm ~/Documents/{filename}")
 
+    def base_method_delete_all_file_in_documents_by_cmd(self):
+        """通过给定名称在 文档 目录下删除所有文件"""
+        Cmd.run(f"rm ~/Documents/*")
+
     def base_method_kill_process_by_cmd(self, process):
         """通过命令关闭进程"""
         Cmd.run(f"killall {process}")
