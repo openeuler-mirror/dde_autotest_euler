@@ -6,7 +6,14 @@
 """
 
 from method.assert_method import AssertMethod
+from method.dde_method import DdeMethod
+import pylinuxauto
 
 
 class BaseCase(AssertMethod):
     """用例基类"""
+    def click_restore(self):
+        """
+        点击左上角
+        """
+        pylinuxauto.mousekey.click(10, 10)
