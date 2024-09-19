@@ -47,7 +47,17 @@ class DdeMethod(
 
     def dde_method_close_window(self):
         """关闭窗口"""
-        self.base_method_click_by_img("close_window_btn.png")
+        def get_euler_version():
+            """获取 openEuler 版本信息,默认图片失败时使用版本图片定位"""
+            with open("/etc/openEuler-release") as f:
+                data = f.readline()
+                return "".join(data.split(" ")[2:]).strip()
+
+        try:
+            self.base_method_click_by_img("close_window_btn.png")
+        except pylinuxauto.exceptions.TemplateElementNotFound:
+            euler_version = get_euler_version()
+            self.base_method_click_by_img(f"close_window_btn_{euler_version}.png")
 
     def dde_method_delete_keyboard_layout_in_control_center(self):
         """在控制中心的键盘布局视图删除除选中之外的布局"""
