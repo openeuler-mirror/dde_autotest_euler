@@ -17,7 +17,7 @@ DDE Autotest for openEuler, based on YouQu3 and PyLinuxAuto.
 进入系统后，通过以下步骤切换 DDE 桌面环境：
 
 ```shell
-sudo yum install dde
+sudo yum install dde rsync
 sudo systemctl set-default graphical.target
 reboot
 ```
