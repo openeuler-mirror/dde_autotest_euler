@@ -15,6 +15,10 @@ class DdeControlCenterMethod(BaseMethod):
         """在控制中心主界面中点击 键盘和语言"""
         self.dde_control_center_method_click_by_attr("键盘和语言")
 
+    def dde_control_center_method_click_system_info_by_attr(self):
+        """在控制中心主界面中点击 系统信息"""
+        self.dde_control_center_method_click_by_attr("系统信息")
+
     def dde_control_center_method_click_keyboard_layout_by_attr(self):
         """在 键盘和语言 模块点击 键盘布局"""
         self.dde_control_center_method_click_by_attr("键盘布局")
