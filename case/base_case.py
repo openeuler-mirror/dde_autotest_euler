@@ -12,6 +12,7 @@ import pylinuxauto
 
 class BaseCase(AssertMethod):
     """用例基类"""
+
     def click_restore(self):
         """
         点击左上角

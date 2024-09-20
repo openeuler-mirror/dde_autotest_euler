@@ -12,7 +12,7 @@ class TestDdeCase(BaseCase):
         sleep(6)
         DdeControlCenterMethod().dde_control_center_method_click_system_info_by_attr()
         sleep(1)
-        self.assert_image_exist_in_dde('logo_deepin.png')
+        self.assert_image_exist_in_dde("logo_deepin.png")
 
     def teardown_method(self):
         """关闭控制中心"""
