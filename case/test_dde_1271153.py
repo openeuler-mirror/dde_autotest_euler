@@ -10,7 +10,7 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.dde_method_open_software_by_launcher("guidang")
         sleep(2)
-        self.assert_process_status(True, 'deepin-compressor')
+        self.assert_process_status(True, "deepin-compressor")
 
     def teardown_method(self):
         """"""

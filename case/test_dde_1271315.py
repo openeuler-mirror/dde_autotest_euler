@@ -21,7 +21,7 @@ class TestDdeCase(BaseCase):
         sleep(1)
         self.assert_ocr_exist("搜索")
         sleep(1)
-        DdeMethod().base_method_click_by_img('launcher_power_btn.png')
+        DdeMethod().base_method_click_by_img("launcher_power_btn.png")
         sleep(1)
         self.assert_ocr_exist("关机")
         pylinuxauto.mousekey.click(10, 10)
