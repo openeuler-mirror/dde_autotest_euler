@@ -10,7 +10,8 @@ class TestDdeCase(BaseCase):
         app_name = "deepin-terminal"
         DdeMethod().base_method_kill_process_by_cmd(app_name)
         pylinuxauto.ctrl_alt_t()
-        DdeMethod().base_method_click_by_img("terminal_set_btn.png")
+        sleep(6)
+        DdeMethod().dde_terminal_method_click_option_by_attr()
         sleep(1)
         DdeMethod().base_method_click_by_ocr("远程管理")
         sleep(1)
@@ -23,5 +24,4 @@ class TestDdeCase(BaseCase):
         self.assert_process_status(False, app_name)
 
     def teardown_method(self):
-        """"""
         pylinuxauto.alt_f4()

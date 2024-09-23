@@ -13,6 +13,7 @@ from method.base_method import BaseMethod
 from method.dde_browser_method import DdeBrowserMethod
 from method.dde_device_manager_method import DdeDeviceManagerMethod
 from method.dde_editor_method import DdeEditorMethod
+from method.dde_terminal_method import DdeTerminalMethod
 from method.deepin_log_viewer_method import DeepinLogViewerMethod
 
 funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
@@ -35,6 +36,7 @@ class DdeMethod(
     DdeEditorMethod,
     DdeDeviceManagerMethod,
     DeepinLogViewerMethod,
+    DdeTerminalMethod,
 ):
     """应用方法主类"""
 
@@ -47,6 +49,7 @@ class DdeMethod(
 
     def dde_method_close_window(self):
         """关闭窗口"""
+
         def get_euler_version():
             """获取 openEuler 版本信息,默认图片失败时使用版本图片定位"""
             with open("/etc/openEuler-release") as f:
@@ -338,3 +341,4 @@ class DdeMethod(
 
 if __name__ == "__main__":
     sleep(3)
+    pylinuxauto.find_element_by_attr_path("/deepin-terminal/DTitlebarDWindowOptionButton").click()
