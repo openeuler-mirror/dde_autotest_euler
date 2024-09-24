@@ -11,3 +11,9 @@ class DdeTerminalMethod(BaseMethod):
         """通过右键点击【在终端中打开】"""
         pylinuxauto.right_click(960, 540)
         self.base_method_click_by_ocr("在终端中打开")
+
+    def dde_terminal_method_click_option_by_attr(self):
+        """在终端界面内点击右上角的【设置】按钮"""
+        pylinuxauto.find_element_by_attr_path(
+            "/deepin-terminal/DTitlebarDWindowOptionButton"
+        ).click()
