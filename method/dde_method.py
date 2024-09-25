@@ -24,6 +24,7 @@ from method.dde_dock_method import DdeDockMethod
 from method.dde_control_center_method import DdeControlCenterMethod
 from method.dde_launcher_method import DdeLauncherMethod
 from method.dde_font_manager_method import DdeFontManagerMethod
+from method.deepin_draw_method import DeepinDrawMethod
 
 
 @log
@@ -37,6 +38,7 @@ class DdeMethod(
     DdeDeviceManagerMethod,
     DeepinLogViewerMethod,
     DdeTerminalMethod,
+    DeepinDrawMethod,
 ):
     """应用方法主类"""
 
@@ -341,4 +343,4 @@ class DdeMethod(
 
 if __name__ == "__main__":
     sleep(3)
-    pylinuxauto.find_element_by_attr_path("/deepin-terminal/DTitlebarDWindowOptionButton").click()
+    pylinuxauto.find_element_by_attr_path("/dde-file-manager/主目录").click()
