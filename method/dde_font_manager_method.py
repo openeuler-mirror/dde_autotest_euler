@@ -14,8 +14,3 @@ class DdeFontManagerMethod(BaseMethod):
     def dde_font_manager_method_click_search_box_attr(self):
         """在字体管理器中点击搜索框"""
         self.dde_font_manager_method_click_by_attr("DSearchEditIconButton")
-
-
-if __name__ == "__main__":
-    sleep(3)
-    DdeFontManagerMethod().dde_font_manager_method_click_search_box_attr()

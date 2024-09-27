@@ -22,8 +22,3 @@ class DdeBrowserMethod(BaseMethod):
     def dde_browser_method_right_click_by_ocr(self, text):
         """在浏览器中通过属性右键点击对应的标签页"""
         pylinuxauto.find_element_by_ocr(text).right_click()
-
-
-if __name__ == "__main__":
-    sleep(3)
-    DdeBrowserMethod().dde_browser_method_click_by_attr("使用 百度 搜索，或者输入网址")

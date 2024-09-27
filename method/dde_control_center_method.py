@@ -79,8 +79,3 @@ class DdeControlCenterMethod(BaseMethod):
     def dde_control_center_method_click_time_setting_by_attr(self):
         """在时间与日期模块中点击 时间设置"""
         self.dde_control_center_method_click_by_attr("时间设置")
-
-
-if __name__ == "__main__":
-    sleep(3)
-    DdeControlCenterMethod()

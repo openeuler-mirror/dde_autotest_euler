@@ -46,7 +46,3 @@ class DdeDockMethod(BaseMethod):
     def dde_dock_method_click_datetime_icon_by_attr(self):
         """在任务栏中通过元素点击右下角时间区域"""
         self.dde_dock_method_click_by_attr("Btn_datetime")
-
-
-if __name__ == "__main__":
-    DdeDockMethod().dde_dock_method_click_datetime_icon_by_attr()

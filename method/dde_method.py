@@ -339,8 +339,3 @@ class DdeMethod(
         self.dde_editor_method_click_documents_in_pop_window_by_img()
         self.dde_methode_click_save_btn_in_pop_window()
         sleep(1)
-
-
-if __name__ == "__main__":
-    sleep(3)
-    pylinuxauto.find_element_by_attr_path("/dde-file-manager/主目录").click()

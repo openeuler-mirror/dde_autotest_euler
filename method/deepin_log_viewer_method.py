@@ -29,8 +29,3 @@ class DeepinLogViewerMethod(BaseMethod):
         sleep(3)
         pylinuxauto.enter()
         sleep(2)
-
-
-if __name__ == "__main__":
-    sleep(3)
-    DeepinLogViewerMethod().deepin_log_viewer_method_click_export_btn_by_attr()
