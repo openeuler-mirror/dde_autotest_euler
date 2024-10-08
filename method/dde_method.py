@@ -25,6 +25,7 @@ from method.dde_control_center_method import DdeControlCenterMethod
 from method.dde_launcher_method import DdeLauncherMethod
 from method.dde_font_manager_method import DdeFontManagerMethod
 from method.deepin_draw_method import DeepinDrawMethod
+from method.deepin_system_monitor_method import DeepinSystemMonitorMethod
 
 
 @log
@@ -39,6 +40,7 @@ class DdeMethod(
     DeepinLogViewerMethod,
     DdeTerminalMethod,
     DeepinDrawMethod,
+    DeepinSystemMonitorMethod,
 ):
     """应用方法主类"""
 
