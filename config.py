@@ -19,7 +19,7 @@ class _Config:
     BASE_PATH = os.getcwd()
 
     pylinuxauto_config.OCR_SERVER_IP = "10.8.13.7"
-    pylinuxauto_config.IMAGE_SERVER_IP = "10.8.12.175"
+    pylinuxauto_config.IMAGE_SERVER_IP = "10.8.12.175/8.137.98.115"
     setting.REPORT_SERVER_IP = "10.8.12.47"
 
 
