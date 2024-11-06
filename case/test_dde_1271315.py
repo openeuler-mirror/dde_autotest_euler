@@ -27,7 +27,3 @@ class TestDdeCase(BaseCase):
         Src.click(10, 10)
         euler.click_restore()
         sleep(1)
-
-    def teardown_method(self):
-        """通过命令关闭启动器"""
-        pass

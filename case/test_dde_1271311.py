@@ -21,5 +21,5 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """环境清理，关闭火狐浏览器"""
-        DdeMethod().browser.click_close_btn_by_attr()
+        DdeMethod().browser.kill_process("Firefox")
         sleep(3)

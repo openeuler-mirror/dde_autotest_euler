@@ -5,6 +5,7 @@ from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271321(self):
         """任务栏-系统时间"""
         euler = DdeMethod()
@@ -12,7 +13,7 @@ class TestDdeCase(BaseCase):
         sleep(2)
         self.assert_ocr_exist("日历")
         sleep(1)
-        euler.close_window()
+        DdeMethod().dde_dock.kill_process("dde-calendar")
         sleep(1)
         euler.dde_dock.right_click_datetime_icon_by_attr()
         Src.select_menu(1)
@@ -29,4 +30,4 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """通过命令关闭控制中心窗口"""
-        DdeMethod().close_window()
+        DdeMethod().dde_dock.kill_process("dde-calendar")
