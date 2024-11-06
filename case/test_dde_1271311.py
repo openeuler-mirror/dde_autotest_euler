@@ -14,12 +14,12 @@ class TestDdeCase(BaseCase):
     def test_dde_1271311(self):
         """从启动器中打开火狐浏览器"""
         euler = DdeMethod()
-        euler.dde_method_open_software_by_launcher("Firefox")
+        euler.open_software_by_launcher("Firefox")
         # 等待 10 秒，判断browser是否启动
         sleep(10)
         self.assert_image_exist_in_dde("test_dde_1271311.png")
 
     def teardown_method(self):
         """环境清理，关闭火狐浏览器"""
-        DdeMethod().browser.dde_browser_method_click_close_btn_by_attr()
+        DdeMethod().browser.click_close_btn_by_attr()
         sleep(3)

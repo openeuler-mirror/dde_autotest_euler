@@ -11,15 +11,15 @@ class TestDdeCase(BaseCase):
     def test_dde_1271055_1(self, clear_process_1):
         """启动器打开画板"""
         euler = DdeMethod()
-        euler.dde_method_open_software_by_launcher("huaban")
+        euler.open_software_by_launcher("huaban")
         sleep(5)
         self.assert_process_status(True, "deepin-draw")
 
     def test_dde_1271055_2(self, clear_process_2):
         """桌面打开画板"""
         euler = DdeMethod()
-        euler.dde_dock.dde_dock_method_click_launcher_btn_by_attr()
-        euler.dde_launcher.dde_launcher_method_click_search_box_by_attr()
+        euler.dde_dock.click_launcher_btn_by_attr()
+        euler.dde_launcher.click_search_box_by_attr()
         Src.input("huaban")
         euler.base_method_right_click_by_ocr("画板")
         Src.select_menu(2)

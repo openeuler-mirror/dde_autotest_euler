@@ -10,11 +10,11 @@ class TestDdeCase(BaseCase):
     def test_dde_1271175(self, clear_file_in_home_and_kill_process):
         """系统监视器-重启系统服务"""
         euler = DdeMethod()
-        euler.dde_method_open_software_by_launcher("xitongjianshiqi")
+        euler.open_software_by_launcher("xitongjianshiqi")
         sleep(5)
-        euler.deepin_system_monitor.deepin_system_monitor_method_click_system_services_btn_by_attr()
-        euler.deepin_system_monitor.deepin_system_monitor_method_search_process_or_service("bluetooth")
-        euler.deepin_system_monitor.deepin_system_monitor_method_right_click_first_service_in_system_services()
+        euler.deepin_system_monitor.click_system_services_btn_by_attr()
+        euler.deepin_system_monitor.search_process_or_service("bluetooth")
+        euler.deepin_system_monitor.right_click_first_service_in_system_services()
         Src.select_menu(2)
         sleep(3)
         Src.input_message(BaseMethod.account_message)
