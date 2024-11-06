@@ -26,4 +26,4 @@ class TestDdeCase(BaseCase):
         sleep(3)
         Src.enter()
         sleep(3)
-        DdeMethod().close_window()
+        DdeMethod().dde_control_center.kill_dde_control_center()

@@ -15,4 +15,4 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """关闭控制中心窗口"""
-        DdeMethod().close_window()
+        DdeMethod().dde_control_center.kill_dde_control_center()
