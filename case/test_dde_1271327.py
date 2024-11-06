@@ -4,6 +4,7 @@ from apps.dde_autotest_euler.case.base_case import BaseCase
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271327_1(self):
         """快捷键关闭剪贴板"""
         Src.hot_key("ctrl", "alt", "v")

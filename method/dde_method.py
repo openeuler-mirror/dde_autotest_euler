@@ -93,6 +93,7 @@ class DdeMethod(Src):
         self.dde_launcher.click_search_box_by_attr()
         ShortCut.input_message(text)
         ShortCut.enter()
+        sleep(2)
 
     def close_window(self):
         """关闭窗口"""
