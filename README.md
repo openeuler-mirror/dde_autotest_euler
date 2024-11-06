@@ -1,10 +1,12 @@
-# DDE Autotest Euler
-
-DDE Autotest for openEuler, based on YouQu3 and PyLinuxAuto.
+<p align="center">
+    <em>DDE Autotest for openEuler, based on YouQu.</em>
+</p>
 
 ----------------------
 
-## 安装欧拉
+**openEuler** 系统 **DDE** 桌面自动化测试。
+
+## 安装
 
 1、下载欧拉最新镜像
 
@@ -22,22 +24,51 @@ sudo systemctl set-default graphical.target
 reboot
 ```
 
-## 环境安装
+## 环境部署
 
-以下所有操作在 DDE 桌面环境下进行，且`不在 root 用户下操作`，建议新建一个普通管理员用户：uos
+以下所有操作在 DDE 桌面环境下进行，且`不在 root 用户下操作`，
+
+建议新建一个普通管理员用户：**uos**
 
 ```bash
+sudo pip3 install youqu
+
+# 初始化工程
+youqu-startproject dde
+
+# 克隆用例仓库
+cd dde/apps/
+git clone https://gitee.com/openeuler/dde_autotest_euler.git
+```
+
+**配置测试机的密码**
+
+配置文件：
+```bash
+setting/globalconfig.ini
+```
+
+修改配置文件：
+```ini
+;测试机的密码
+PASSWORD = <PASSWORD>
+```
+
+**安装依赖**
+
+```bash
+cd dde/
 bash env.sh
 ```
 
 ## 运行
 
 ```bash
-# 配置系统密码
-export YOUQU_PASSWORD=<PASSWORD>
 # 在项目根目录下运行
-youqu3 run
+youqu manage.py run
 ```
+
+更多运行方式请查看文档：https://youqu.uniontech.com/
 
 ## 提交规范
 
@@ -54,4 +85,4 @@ youqu3 run
 ## 常见问题
 Q: OCR识别、图像识别服务器不可用？
 
-> A: OCR识别、图像识别等服务器仅对公司内网开放，对外使用可自行部署或者联系公司技术支持。
+> A: OCR识别、图像识别等服务器仅对内网开放，外部可自行部署或者联系公司技术支持。
