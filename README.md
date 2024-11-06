@@ -6,20 +6,16 @@ DDE Autotest for openEuler, based on [YouQu](https://youqu.uniontech.com/).
 
 ## 安装
 
-1、下载欧拉最新镜像
+1、安装 [欧拉](https://www.openeuler.org/zh/download/) **24.03 LTS**
 
-镜像下载网址：https://www.openeuler.org/zh/download/
-
-2、虚拟机安装镜像
-
-3、进入系统后，通过以下步骤切换 DDE 桌面环境：
+2、通过以下步骤切换 DDE 桌面环境：
 
 ```bash
 sudo yum install dde -y
 sudo systemctl set-default graphical.target
 sudo reboot
 ```
-4、修改分辨率为：1920 x 1080
+3、修改分辨率为：1920 x 1080
 
 ## 环境部署
 

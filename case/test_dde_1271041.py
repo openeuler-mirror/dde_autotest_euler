@@ -19,4 +19,4 @@ class TestDdeCase(BaseCase):
         """删除新增账户并且关闭控制中心"""
         yield
         DdeMethod().delete_test_account_by_control_center()
-        DdeMethod().close_window()
+        DdeMethod().dde_control_center.kill_dde_control_center()
