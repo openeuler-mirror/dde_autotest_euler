@@ -5,15 +5,13 @@
 :Date  :2024/08/22 13:15:47
 """
 
-from funnylog2 import logger
-from pylinuxauto.assertx import Assert
-from config import config
-from nocmd import Cmd
-
-from method.base_method import BaseMethod
+from apps.dde_autotest_euler.config import config
+from apps.dde_autotest_euler.method.base_method import BaseMethod
+from src import logger
+from src.assert_common import AssertCommon
 
 
-class AssertMethod(Assert):
+class AssertMethod(AssertCommon):
     """AssertMethod"""
 
     @classmethod

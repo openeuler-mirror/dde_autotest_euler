@@ -1,13 +1,13 @@
-from case.base_case import BaseCase
-from method.dde_method import DdeMethod
-from pylinuxauto import sleep
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
+from src import sleep
 
 
 class TestDdeCase(BaseCase):
     def test_dde_1271001(self):
         """控制中心-网络-DSL功能测试"""
         euler = DdeMethod()
-        euler.dde_dock_method_click_control_center_btn_by_attr()
+        euler.dde_dock.dde_dock_method_click_control_center_btn_by_attr()
         sleep(6)
         euler.dde_method_add_network_dsl_by_control_center()
         sleep(3)

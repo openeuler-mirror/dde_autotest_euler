@@ -1,13 +1,13 @@
-from case.base_case import BaseCase
-from method.dde_method import DdeMethod
-from pylinuxauto import sleep
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
+from src import sleep
 
 
 class TestDdeCase(BaseCase):
     def test_dde_1270989(self):
         """控制中心中手动修改时间"""
         euler = DdeMethod()
-        euler.dde_dock_method_click_control_center_btn_by_attr()
+        euler.dde_dock.dde_dock_method_click_control_center_btn_by_attr()
         sleep(6)
         euler.dde_method_change_time_by_control_center()
         sleep(2)
@@ -17,8 +17,8 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """重新开启时间同步，重置时间"""
-        DdeMethod().dde_control_center_method_click_time_setting_by_attr()
+        DdeMethod().dde_control_center.dde_control_center_method_click_time_setting_by_attr()
         sleep(1)
-        DdeMethod().dde_control_center_method_click_time_synchronization_btn_by_attr()
+        DdeMethod().dde_control_center.dde_control_center_method_click_time_synchronization_btn_by_attr()
         sleep(2)
         DdeMethod().dde_method_close_window()

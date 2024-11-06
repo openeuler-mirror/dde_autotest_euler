@@ -1,10 +1,10 @@
 from time import sleep
-import pylinuxauto
+from src import Src
 import pytest
-from nocmd import Cmd
+from src import CmdCtl as Cmd
 
-from case.base_case import BaseCase
-from method.dde_method import DdeMethod
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
@@ -13,11 +13,11 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.dde_method_open_software_by_launcher("huaban")
         sleep(5)
-        euler.deepin_draw_method_click_rectangle_tool_btn_by_attr()
-        pylinuxauto.mouse_down(500, 500)
-        pylinuxauto.drag_to(600, 600, 1, 1)
+        euler.deepin_draw.deepin_draw_method_click_rectangle_tool_btn_by_attr()
+        Src.mouse_down(500, 500)
+        Src.drag_to(600, 600, 1, 1)
         sleep(1)
-        pylinuxauto.ctrl_s()
+        Src.ctrl_s()
         sleep(1)
         euler.dde_methode_click_save_btn_in_pop_window()
         sleep(1)
@@ -35,4 +35,4 @@ class TestDdeCase(BaseCase):
         yield
         DdeMethod().base_method_kill_process_by_cmd("deepin-draw")
         DdeMethod().base_method_kill_process_by_cmd("dde-file-manager")
-        Cmd.run("rm ~/未命名.ddf")
+        Cmd.run_cmd("rm ~/未命名.ddf")

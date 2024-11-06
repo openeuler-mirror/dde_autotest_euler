@@ -1,7 +1,7 @@
-import pylinuxauto
-from case.base_case import BaseCase
-from pylinuxauto import sleep
-from method.dde_method import DdeMethod
+from src import Src
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from src import sleep
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
@@ -11,7 +11,7 @@ class TestDdeCase(BaseCase):
         euler.dde_method_open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         self.assert_process_status(True, "deepin-editor")
-        euler.dde_editor_method_quit_editor_by_ocr()
+        euler.deepin_editor.dde_editor_method_quit_editor_by_ocr()
         sleep(3)
         self.assert_process_status(False, "deepin-editor")
 
@@ -21,6 +21,6 @@ class TestDdeCase(BaseCase):
         euler.dde_method_open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         self.assert_process_status(True, "deepin-editor")
-        pylinuxauto.alt_f4()
+        Src.alt_f4()
         sleep(3)
         self.assert_process_status(False, "deepin-editor")

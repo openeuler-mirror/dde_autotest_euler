@@ -1,9 +1,9 @@
 from time import sleep
-import pylinuxauto
+from src import Src
 import pytest
-from case.base_case import BaseCase
-from method.base_method import BaseMethod
-from method.dde_method import DdeMethod
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.base_method import BaseMethod
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
@@ -12,14 +12,14 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.dde_method_open_software_by_launcher("xitongjianshiqi")
         sleep(5)
-        euler.deepin_system_monitor_method_click_system_services_btn_by_attr()
-        euler.deepin_system_monitor_method_search_process_or_service("bluetooth")
-        euler.deepin_system_monitor_method_right_click_first_service_in_system_services()
-        pylinuxauto.select_menu(2)
+        euler.deepin_system_monitor.deepin_system_monitor_method_click_system_services_btn_by_attr()
+        euler.deepin_system_monitor.deepin_system_monitor_method_search_process_or_service("bluetooth")
+        euler.deepin_system_monitor.deepin_system_monitor_method_right_click_first_service_in_system_services()
+        Src.select_menu(2)
         sleep(3)
-        pylinuxauto.input_message(BaseMethod.account_message)
+        Src.input_message(BaseMethod.account_message)
         sleep(3)
-        pylinuxauto.enter()
+        Src.enter()
         self.assert_ocr_exist("已启动")
 
     @pytest.fixture

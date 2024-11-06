@@ -1,20 +1,17 @@
-from time import sleep
-from funnylog2.config import config as funnylog2_config
-
-funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
-import pylinuxauto
-from method.base_method import BaseMethod
+from apps.dde_autotest_euler.method.base_method import BaseMethod
 
 
 class DdeDockMethod(BaseMethod):
+
+    def __init__(self):
+        super().__init__("dde-dock")
     def dde_dock_method_click_by_attr(self, path):
         """在任务栏中通过元素点击"""
-        pylinuxauto.find_element_by_attr_path(f"/dde-dock/{path}").click()
+        self.dog.element_click(path)
 
     def dde_dock_method_right_click_by_attr(self, path):
         """在任务栏中通过元素右键点击"""
-        pylinuxauto.find_element_by_attr_path(f"/dde-dock/{path}").right_click()
-
+        self.dog.element_click(path, button=3)
     def dde_dock_method_click_dde_file_manager_by_attr(self):
         """在任务栏点击文件管理器"""
         self.dde_dock_method_click_by_attr("Btn_文件管理器")
