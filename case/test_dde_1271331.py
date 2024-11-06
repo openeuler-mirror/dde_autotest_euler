@@ -12,12 +12,12 @@ class TestDdeCase(BaseCase):
         Src.hot_key("win", "d")
         time.sleep(2)
         euler = DeepinTerminalMethod()
-        euler.dde_terminal_method__right_click_by_xy()
+        euler.right_click_by_xy()
         time.sleep(2)
 
         self.assert_ocr_exist("uos@")
 
     def teardown_method(self):
         """关闭窗口"""
-        DdeMethod().dde_method_close_window()
+        DdeMethod().close_window()
         time.sleep(2)

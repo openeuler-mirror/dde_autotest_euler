@@ -55,14 +55,14 @@ PASSWORD = <PASSWORD>
 
 ```bash
 cd dde/
-bash env.sh
+bash env.sh -D
 ```
 
 ## 运行
 
 ```bash
 # 在项目根目录下运行
-youqu manage.py run
+python3 manage.py run
 ```
 
 更多运行方式请查看文档：https://youqu.uniontech.com/

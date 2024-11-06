@@ -7,10 +7,10 @@ class TestDdeCase(BaseCase):
     def test_dde_1271157(self):
         """日志收集工具-全部日志导出"""
         euler = DdeMethod()
-        euler.dde_method_open_software_by_launcher("rizhishoujigongju")
+        euler.open_software_by_launcher("rizhishoujigongju")
         sleep(6)
         euler.deepin_log_viewer.deepin_log_viewer_input_root_password()
-        euler.deepin_log_viewer_method_export_all_log_by_attr()
+        euler.export_all_log_by_attr()
         self.assert_image_exist_in_dde("test_dde_1271169")
 
     def teardown_method(self):

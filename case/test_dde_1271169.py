@@ -7,9 +7,9 @@ class TestDdeCase(BaseCase):
     def test_dde_1271169(self):
         """日志收集工具-单模块日志导出"""
         euler = DdeMethod()
-        euler.dde_method_open_software_by_launcher("rizhishoujigongju")
+        euler.open_software_by_launcher("rizhishoujigongju")
         sleep(6)
-        euler.deepin_log_viewer_method_export_log_by_attr("Boot-Shutdown Event", "Html (*.html)")
+        euler.export_log_by_attr("Boot-Shutdown Event", "Html (*.html)")
         self.assert_image_exist_in_dde("test_dde_1271169")
 
     def teardown_method(self):

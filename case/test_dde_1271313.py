@@ -15,7 +15,7 @@ class TestDdeCase(BaseCase):
     def test_dde_1271313_1(self):
         """在任务栏中点击启动器"""
         euler = DdeMethod()
-        euler.dde_dock.dde_dock_method_click_launcher_btn_by_attr()
+        euler.dde_dock.click_launcher_btn_by_attr()
 
         # 等待 1 秒，判断launcher是否启动
         sleep(1)

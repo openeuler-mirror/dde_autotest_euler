@@ -11,7 +11,7 @@ class TestDdeCase(BaseCase):
         DdeMethod().base_method_kill_process_by_cmd(app_name)
         Src.ctrl_alt_t()
         sleep(6)
-        DdeMethod().deepin_terminal.dde_terminal_method_click_option_by_attr()
+        DdeMethod().deepin_terminal.click_option_by_attr()
         sleep(1)
         DdeMethod().base_method_click_by_ocr("远程管理")
         sleep(1)
