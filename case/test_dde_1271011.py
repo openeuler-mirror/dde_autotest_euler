@@ -10,7 +10,6 @@ class TestDdeCase(BaseCase):
         DdeMethod().dde_dock.click_control_center_btn_by_attr()
         sleep(6)
         DdeMethod().change_resolution_by_control_center()
-        # self.assert_element_exist("/dde-control-center/59.81赫兹")
         self.assert_image_exist_in_dde("test_dde_1271011.png")
 
     def teardown_method(self):
