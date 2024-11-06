@@ -1,15 +1,15 @@
 from time import sleep
-from funnylog2.config import config as funnylog2_config
 
-funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
-import pylinuxauto
-from method.base_method import BaseMethod
+from apps.dde_autotest_euler.method.base_method import BaseMethod
 
 
 class DdeControlCenterMethod(BaseMethod):
+
+    def __init__(self):
+        super().__init__("dde-control-center")
     def dde_control_center_method_click_by_attr(self, path):
         """在控制中心中通过元素点击"""
-        pylinuxauto.find_element_by_attr_path(f"/dde-control-center/{path}").click()
+        self.dog.element_click(path)
 
     def dde_control_center_method_click_keyboard_and_language_by_attr(self):
         """在控制中心主界面中点击 键盘和语言"""
@@ -46,9 +46,9 @@ class DdeControlCenterMethod(BaseMethod):
     def dde_control_center_enter_view_by_search_box(self, view_name):
         """通过控制中心上方的搜索框进入到对应的视图之中"""
         self.dde_control_center_method_click_by_attr("Editable_searchmodulelineedit")
-        pylinuxauto.input_message(view_name)
+        self.input_message(view_name)
         sleep(3)
-        pylinuxauto.enter()
+        self.enter()
         sleep(1)
 
     def dde_control_center_method_click_edit_btn_in_system_language(self):
@@ -66,7 +66,7 @@ class DdeControlCenterMethod(BaseMethod):
     def dde_control_center_method_reduce_password_effective_time(self):
         """账户视图下，减少账户密码有效时间"""
         self.dde_control_center_method_click_by_attr("Editable_dspinboxchilddlineedit")
-        pylinuxauto.enter()
+        self.enter()
 
     def dde_control_center_method_click_add_dsl_btn(self):
         """在网络的dsl视图中点击添加按钮"""

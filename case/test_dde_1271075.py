@@ -1,8 +1,8 @@
-import pylinuxauto
+from src import Src
 import pytest
-from case.base_case import BaseCase
-from pylinuxauto import sleep
-from method.dde_method import DdeMethod
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from src import sleep
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
@@ -12,17 +12,17 @@ class TestDdeCase(BaseCase):
         euler.base_method_create_file_in_documents_by_cmd("test.txt")
         euler.dde_method_open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
-        euler.dde_editor_method_click_menu_btn_by_attr()
-        euler.dde_editor_method_choose_open_file_option_by_ocr()
+        euler.deepin_editor.dde_editor_method_click_menu_btn_by_attr()
+        euler.deepin_editor.dde_editor_method_choose_open_file_option_by_ocr()
         sleep(3)
-        euler.dde_editor_method_click_documents_in_pop_window_by_img()
+        euler.deepin_editor.dde_editor_method_click_documents_in_pop_window_by_img()
         sleep(2)
-        pylinuxauto.ctrl_a()
-        pylinuxauto.enter()
+        Src.ctrl_a()
+        Src.enter()
         sleep(3)
-        euler.dde_editor_method_click_menu_btn_by_attr()
+        euler.deepin_editor.dde_editor_method_click_menu_btn_by_attr()
         sleep(1)
-        euler.dde_editor_method_choose_save_as_option_by_ocr()
+        euler.deepin_editor.dde_editor_method_choose_save_as_option_by_ocr()
         sleep(3)
         euler.dde_method_rename_file_in_pop_window_by_attr("new.txt")
         self.assert_file_exist("~/Documents/new.txt")
@@ -31,9 +31,9 @@ class TestDdeCase(BaseCase):
         """文本编辑器——另存为 重复文件名"""
         euler = DdeMethod()
         sleep(3)
-        euler.dde_editor_method_click_menu_btn_by_attr()
+        euler.deepin_editor.dde_editor_method_click_menu_btn_by_attr()
         sleep(1)
-        euler.dde_editor_method_choose_save_as_option_by_ocr()
+        euler.deepin_editor.dde_editor_method_choose_save_as_option_by_ocr()
         sleep(3)
         euler.dde_method_rename_file_same_name_in_pop_window_by_attr("new.txt")
         self.assert_image_exist_in_dde("test_dde_1271075.png")

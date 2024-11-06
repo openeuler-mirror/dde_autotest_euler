@@ -1,7 +1,7 @@
-from pylinuxauto import sleep
-from case.base_case import BaseCase
-from method.dde_method import DdeMethod
-import pylinuxauto
+from src import sleep
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
+from src import Src
 
 
 class TestDdeCase(BaseCase):
@@ -10,11 +10,9 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.dde_method_open_software_by_launcher("rizhishoujigongju")
         sleep(6)
-        pylinuxauto.find_element_by_attr_path(
-            "/dde-polkit-agent/EditableText_passwordinput"
-        ).click()
-        pylinuxauto.input_message("1")
-        pylinuxauto.enter()
+        euler.dde_polkit_agent.dde_polkit_agent_method_click_by_attr("EditableText_passwordinput")
+        Src.input_message("1")
+        Src.enter()
         sleep(2)
         self.assert_image_exist_in_dde("test_dde_1271159_1")
 
@@ -23,7 +21,7 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.dde_method_open_software_by_launcher("rizhishoujigongju")
         sleep(6)
-        euler.deepin_log_viewer_input_root_password()
+        euler.deepin_log_viewer.deepin_log_viewer_input_root_password()
         self.assert_ocr_exist("状态")
 
     def teardown_method(self):

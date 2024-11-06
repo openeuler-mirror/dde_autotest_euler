@@ -5,9 +5,9 @@
 :Date  :2024/08/22 13:15:47
 """
 
-from case.base_case import BaseCase
-from pylinuxauto import sleep
-from method.dde_method import DdeMethod
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from src import sleep
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
@@ -21,5 +21,5 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """环境清理，关闭火狐浏览器"""
-        DdeMethod().dde_browser_method_click_close_btn_by_attr()
+        DdeMethod().browser.dde_browser_method_click_close_btn_by_attr()
         sleep(3)

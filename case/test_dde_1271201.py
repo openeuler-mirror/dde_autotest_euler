@@ -1,7 +1,7 @@
-from pylinuxauto import sleep
-from case.base_case import BaseCase
-from method.dde_method import DdeMethod
-import pylinuxauto
+from src import sleep
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
+from src import Src
 
 
 class TestDdeCase(BaseCase):
@@ -10,14 +10,14 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.dde_method_open_software_by_launcher("shebeiguanliqi")
         sleep(6)
-        euler.dde_device_manager_method_export_file_by_attr("概况")
+        euler.deepin_devicemanager.dde_device_manager_method_export_file_by_attr("概况")
         euler.dde_method_open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
-        euler.dde_editor_method_click_menu_btn_by_attr()
-        euler.dde_editor_method_choose_open_file_option_by_ocr()
-        euler.dde_editor_method_click_documents_in_pop_window_by_img()
-        pylinuxauto.ctrl_a()
-        pylinuxauto.enter()
+        euler.deepin_editor.deepin_editor.dde_editor_method_click_menu_btn_by_attr()
+        euler.deepin_editor.deepin_editor.dde_editor_method_choose_open_file_option_by_ocr()
+        euler.deepin_editor.dde_editor_method_click_documents_in_pop_window_by_img()
+        Src.ctrl_a()
+        Src.enter()
         sleep(2)
         self.assert_ocr_exist("概况", "处理器", "CPU数量", "内存")
 

@@ -1,15 +1,16 @@
-from time import sleep
-from funnylog2.config import config as funnylog2_config
 
-funnylog2_config.CLASS_NAME_ENDSWITH = ["Method"]
-import pylinuxauto
-from method.base_method import BaseMethod
+from apps.dde_autotest_euler.method.base_method import BaseMethod
 
 
-class DdeBrowserMethod(BaseMethod):
+class BrowserMethod(BaseMethod):
+
+    def __init__(self):
+        super().__init__(name="Firefox")
+
+
     def dde_browser_method_click_by_attr(self, path):
         """在浏览器中通过属性进行点击"""
-        pylinuxauto.find_element_by_attr_path(f"/Firefox/{path}").click()
+        self.dog.element_click(path)
 
     def dde_browser_method_click_menu_icon_by_img(self):
         """在浏览器中点击右上角的菜单按钮"""
@@ -21,4 +22,4 @@ class DdeBrowserMethod(BaseMethod):
 
     def dde_browser_method_right_click_by_ocr(self, text):
         """在浏览器中通过属性右键点击对应的标签页"""
-        pylinuxauto.find_element_by_ocr(text).right_click()
+        self.base_method_click_by_ocr(text)

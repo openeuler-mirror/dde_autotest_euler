@@ -1,6 +1,6 @@
 import pytest
-from case.base_case import BaseCase
-from method.dde_method import DdeMethod
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):

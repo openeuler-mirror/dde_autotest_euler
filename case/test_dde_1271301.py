@@ -1,6 +1,6 @@
-from case.base_case import BaseCase
-from pylinuxauto import sleep
-from method.dde_method import DdeMethod
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from src import sleep
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
