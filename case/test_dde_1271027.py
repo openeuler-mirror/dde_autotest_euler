@@ -19,4 +19,4 @@ class TestDdeCase(BaseCase):
         """关闭控制中心窗口"""
         DdeMethod().dde_control_center.click_by_attr("test")
         DdeMethod().delete_test_account_by_control_center()
-        DdeMethod().close_window()
+        DdeMethod().dde_control_center.kill_dde_control_center()

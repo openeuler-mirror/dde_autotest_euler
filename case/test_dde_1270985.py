@@ -28,5 +28,5 @@ class TestDdeCase(BaseCase):
             sleep(2)
             DdeMethod().dde_control_center.delete_other_time_area_by_control_center()
             DdeMethod().close_window()
-        except Exception:
+        except:
             DdeMethod().dde_control_center.kill_dde_control_center()

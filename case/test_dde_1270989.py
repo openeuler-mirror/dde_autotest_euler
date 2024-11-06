@@ -21,4 +21,4 @@ class TestDdeCase(BaseCase):
         sleep(1)
         DdeMethod().dde_control_center.click_time_synchronization_btn_by_attr()
         sleep(2)
-        DdeMethod().close_window()
+        DdeMethod().dde_control_center.kill_dde_control_center()
