@@ -1,8 +1,6 @@
-<p align="center">
-    <em>DDE Autotest for openEuler, based on YouQu.</em>
-</p>
+# DDE Autotest Euler
 
-----------------------
+DDE Autotest for openEuler, based on [YouQu](https://youqu.uniontech.com/).
 
 **openEuler** 系统 **DDE** 桌面自动化测试。
 
@@ -14,19 +12,18 @@
 
 2、虚拟机安装镜像
 
-3、配置欧拉 DDE 桌面环境
+3、进入系统后，通过以下步骤切换 DDE 桌面环境：
 
-进入系统后，通过以下步骤切换 DDE 桌面环境：
-
-```shell
-sudo yum install dde rsync
+```bash
+sudo yum install dde -y
 sudo systemctl set-default graphical.target
-reboot
+sudo reboot
 ```
+4、修改分辨率为：1920 x 1080
 
 ## 环境部署
 
-以下所有操作在 DDE 桌面环境下进行，且`不在 root 用户下操作`，
+以下所有操作在 DDE 桌面环境下进行，且**不在 root 用户下操作**，
 
 建议新建一个普通管理员用户：**uos**
 
@@ -78,11 +75,13 @@ youqu manage.py run
 
 3、PR 的内容应当是有价值的，无关紧要的内容或非常简单的优化可以与其他内容一起提交。
 
-4、 提交的 PR 应当是独立的，不能影响其他文件的功能，不可影响其他用例的执行。
-
-5、提交的代码应当注重规范性，提交前要对代码的格式与内容进行检查。
+4、提交的代码应当注重规范性，提交前要对代码的格式与内容进行检查。
 
 ## 常见问题
 Q: OCR识别、图像识别服务器不可用？
 
 > A: OCR识别、图像识别等服务器仅对内网开放，外部可自行部署或者联系公司技术支持。
+
+## 用例列表
+
+[在线表格](https://doc.weixin.qq.com/sheet/e3_Ab8A1gYLABUA8lV99qfQWO7XU3Vhn?scode=AEoAsgdxAAYAl5RLlkAJgAbQaKAB8&tab=BB08J2)
