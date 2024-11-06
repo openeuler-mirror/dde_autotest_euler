@@ -10,7 +10,7 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.open_software_by_launcher("shebeiguanliqi")
         sleep(6)
-        euler.deepin_devicemanager.export_file_by_attr("概况")
+        euler.export_file_by_attr("概况")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         euler.deepin_editor.deepin_editor.click_menu_btn_by_attr()
@@ -23,7 +23,7 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """通过命令删除测试文件，关闭设备管理器以及文本编辑器器"""
-        DdeMethod().kill_process_by_cmd("deepin-devicemanager")
-        DdeMethod().kill_process_by_cmd("deepin-editor")
-        DdeMethod().delete_all_file_in_documents_by_cmd()
+        DdeMethod().dde_dock.kill_process_by_cmd("deepin-devicemanager")
+        DdeMethod().dde_dock.kill_process_by_cmd("deepin-editor")
+        DdeMethod().dde_dock.delete_all_file_in_documents_by_cmd()
         sleep(3)

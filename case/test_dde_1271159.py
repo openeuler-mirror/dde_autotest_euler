@@ -2,6 +2,7 @@ from src import sleep
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
 from src import Src
+from setting import conf
 
 
 class TestDdeCase(BaseCase):
@@ -11,7 +12,7 @@ class TestDdeCase(BaseCase):
         euler.open_software_by_launcher("rizhishoujigongju")
         sleep(6)
         euler.dde_polkit_agent.click_by_attr("EditableText_passwordinput")
-        Src.input_message("1")
+        Src.input_message(conf.PASSWORD)
         Src.enter()
         sleep(2)
         self.assert_image_exist_in_dde("test_dde_1271159_1")

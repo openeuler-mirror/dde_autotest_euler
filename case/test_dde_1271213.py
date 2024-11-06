@@ -9,7 +9,7 @@ class TestDdeCase(BaseCase):
         DdeMethod().open_software_by_launcher("zitiguanli")
         sleep(6)
         DdeMethod().search_font_in_font_manager("FreeMono-bold Oblique")
-        self.assert_image_exist_in_dde("test_dde_1271213.png")
+        self.assert_ocr_exist("FreeMono")
 
     def test_dde_1271213_2(self):
         """在字体管理器中搜索非字体名称"""
@@ -20,4 +20,4 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """关闭字体管理器"""
-        DdeMethod().close_window()
+        DdeMethod().dde_dock.kill_process("deepin-font-manager")

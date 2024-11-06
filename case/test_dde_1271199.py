@@ -40,5 +40,5 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """通过命令关闭启动器"""
-        DdeMethod().kill_process_by_cmd("deepin-devicemanager")
+        DdeMethod().dde_dock.kill_process_by_cmd("deepin-devicemanager")
         sleep(3)
