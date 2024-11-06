@@ -24,4 +24,4 @@ class DdeLauncherMethod(BaseMethod):
 
     def click_system_manager_in_all_categories_view(self):
         """在启动器的 所有分类 界面点击 系统管理"""
-        self.base_method_click_by_ocr("系统管理")
+        self.click_by_ocr("系统管理")

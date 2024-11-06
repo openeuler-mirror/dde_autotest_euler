@@ -23,7 +23,7 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """通过命令删除测试文件，关闭设备管理器以及文本编辑器器"""
-        DdeMethod().base_method_kill_process_by_cmd("deepin-devicemanager")
-        DdeMethod().base_method_kill_process_by_cmd("deepin-editor")
-        DdeMethod().base_method_delete_all_file_in_documents_by_cmd()
+        DdeMethod().kill_process_by_cmd("deepin-devicemanager")
+        DdeMethod().kill_process_by_cmd("deepin-editor")
+        DdeMethod().delete_all_file_in_documents_by_cmd()
         sleep(3)

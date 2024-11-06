@@ -8,6 +8,7 @@ from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271055_1(self, clear_process_1):
         """启动器打开画板"""
         euler = DdeMethod()
@@ -21,16 +22,16 @@ class TestDdeCase(BaseCase):
         euler.dde_dock.click_launcher_btn_by_attr()
         euler.dde_launcher.click_search_box_by_attr()
         Src.input("huaban")
-        euler.base_method_right_click_by_ocr("画板")
+        sleep(3)
+        euler.dde_dock.right_click_by_ocr("画板")
         Src.select_menu(2)
-        DdeMethod().base_method_kill_process_by_cmd("dde-launcher")
         sleep(2)
-        euler.base_method_double_click_by_img("deepin_draw_icon.png")
+        euler.deepin_draw.double_click_by_img("deepin_draw_icon.png")
         sleep(5)
         self.assert_process_status(True, "deepin-draw")
-        DdeMethod().base_method_kill_process_by_cmd("deepin-draw")
+        DdeMethod().deepin_draw.kill_process_by_cmd("deepin-draw")
         sleep(3)
-        euler.base_method_right_click_by_img("deepin_draw_icon.png")
+        euler.deepin_draw.right_click_by_img("deepin_draw_icon.png")
         Src.select_menu(1)
         sleep(5)
         self.assert_process_status(True, "deepin-draw")
@@ -45,12 +46,12 @@ class TestDdeCase(BaseCase):
     def clear_process_1(self):
         """清理环境"""
         yield
-        DdeMethod().base_method_kill_process_by_cmd("deepin-draw")
+        DdeMethod().deepin_draw.kill_process_by_cmd("deepin-draw")
 
     @pytest.fixture
     def clear_process_2(self):
         """清理环境"""
         yield
-        DdeMethod().base_method_kill_process_by_cmd("deepin-draw")
-        DdeMethod().base_method_click_by_img("deepin_draw_icon.png")
+        DdeMethod().deepin_draw.kill_process_by_cmd("deepin-draw")
+        DdeMethod().deepin_draw.click_by_img("deepin_draw_icon.png")
         Src.delete()

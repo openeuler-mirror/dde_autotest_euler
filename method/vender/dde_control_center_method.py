@@ -42,7 +42,7 @@ class DdeControlCenterMethod(BaseMethod):
 
     def click_delete_btn_by_img(self):
         """点击控制中心列表项目编辑状态下旁边的红色删除按钮"""
-        self.base_method_click_by_img("delete_keyboard_layout_icon.png")
+        self.click_by_img("delete_keyboard_layout_icon.png")
 
     def enter_view_by_search_box(self, view_name):
         """通过控制中心上方的搜索框进入到对应的视图之中"""

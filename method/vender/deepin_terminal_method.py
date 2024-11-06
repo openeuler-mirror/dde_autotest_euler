@@ -9,7 +9,7 @@ class DeepinTerminalMethod(BaseMethod):
     def right_click_by_xy(self):
         """通过右键点击【在终端中打开】"""
         self.right_click(960, 540)
-        self.base_method_click_by_ocr("在终端中打开")
+        self.click_by_ocr("在终端中打开")
 
     def click_option_by_attr(self):
         """在终端界面内点击右上角的【设置】按钮"""

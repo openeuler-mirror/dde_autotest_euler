@@ -26,4 +26,4 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """通过命令关闭日志收集工具"""
-        DdeMethod().base_method_kill_process_by_cmd("deepin-log-viewer")
+        DdeMethod().kill_process_by_cmd("deepin-log-viewer")

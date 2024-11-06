@@ -8,6 +8,7 @@ from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271057(self, clear_file_in_home_and_kill_process):
         """画板-ddf格式文件打开"""
         euler = DdeMethod()
@@ -21,11 +22,11 @@ class TestDdeCase(BaseCase):
         sleep(1)
         euler.click_save_btn_in_pop_window()
         sleep(1)
-        DdeMethod().base_method_kill_process_by_cmd("deepin-draw")
+        DdeMethod().dde_dock.kill_process_by_cmd("deepin-draw")
         sleep(2)
         euler.open_software_by_launcher("wenjianguanliqi")
-        euler.base_method_click_by_ocr("主目录")
-        euler.base_method_double_click_by_ocr("未命名")
+        euler.dde_dock.click_by_ocr("主目录")
+        euler.dde_dock.double_click_by_ocr("未命名")
         sleep(5)
         self.assert_process_status(True, "deepin-draw")
 
@@ -33,6 +34,6 @@ class TestDdeCase(BaseCase):
     def clear_file_in_home_and_kill_process(self):
         """清除测试文件，关闭进程"""
         yield
-        DdeMethod().base_method_kill_process_by_cmd("deepin-draw")
-        DdeMethod().base_method_kill_process_by_cmd("dde-file-manager")
+        DdeMethod().dde_dock.kill_process_by_cmd("deepin-draw")
+        DdeMethod().dde_dock.kill_process_by_cmd("dde-file-manager")
         Cmd.run_cmd("rm ~/未命名.ddf")

@@ -9,7 +9,7 @@ class TestDdeCase(BaseCase):
     def test_dde_1271075_1(self):
         """文本编辑器——另存为 非重复文件名"""
         euler = DdeMethod()
-        euler.base_method_create_file_in_documents_by_cmd("test.txt")
+        euler.create_file_in_documents_by_cmd("test.txt")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         euler.deepin_editor.click_menu_btn_by_attr()
@@ -47,6 +47,6 @@ class TestDdeCase(BaseCase):
         sleep(1)
         DdeMethod().close_window()
         sleep(1)
-        DdeMethod().base_method_kill_process_by_cmd("deepin-editor")
-        DdeMethod().base_method_delete_file_in_documents_by_cmd("new.txt")
-        DdeMethod().base_method_delete_file_in_documents_by_cmd("test.txt")
+        DdeMethod().kill_process_by_cmd("deepin-editor")
+        DdeMethod().delete_file_in_documents_by_cmd("new.txt")
+        DdeMethod().delete_file_in_documents_by_cmd("test.txt")

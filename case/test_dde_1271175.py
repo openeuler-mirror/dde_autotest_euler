@@ -26,4 +26,4 @@ class TestDdeCase(BaseCase):
     def clear_file_in_home_and_kill_process(self):
         """关闭进程"""
         yield
-        DdeMethod().base_method_kill_process_by_cmd("deepin-system-monitor")
+        DdeMethod().kill_process_by_cmd("deepin-system-monitor")
