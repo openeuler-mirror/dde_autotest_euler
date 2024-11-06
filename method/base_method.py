@@ -30,48 +30,49 @@ class BaseMethod(Src):
     def __init__(self, name):
         super().__init__(name)
 
-    def base_method_click_by_ocr(self, text):
+    def click_by_ocr(self, text):
         """通过ocr识别点击"""
         self.ocrx(text).click()
 
-    def base_method_double_click_by_ocr(self, text):
+    def double_click_by_ocr(self, text):
         """通过ocr识别双击"""
         self.ocrx(text).double_click()
 
-    def base_method_click_by_img(self, img_name):
+    def click_by_img(self, img_name):
         """通过图像识别点击"""
         self.click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
 
-    def base_method_double_click_by_img(self, img_name):
+    def double_click_by_img(self, img_name):
         """通过图像识别双击"""
         self.double_click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
 
-    def base_method_right_click_by_ocr(self, text):
+    def right_click_by_ocr(self, text):
         """通过ocr识别右键点击"""
         self.ocrx(text).right_click()
 
-    def base_method_right_click_by_img(self, img_name):
+    def right_click_by_img(self, img_name):
         """通过图片识别右键点击"""
         self.right_click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
 
-    def base_method_create_file_in_documents_by_cmd(self, filename):
+    def create_file_in_documents_by_cmd(self, filename):
         """通过给定名称在 文档 目录下创建文件"""
         self.run_cmd(f"touch ~/Documents/{filename}")
         self.run_cmd(f"echo 'This is test message' >> ~/Documents/{filename}")
 
-    def base_method_delete_file_in_documents_by_cmd(self, filename):
+    def delete_file_in_documents_by_cmd(self, filename):
         """通过给定名称在 文档 目录下删除文件"""
         self.run_cmd(f"rm ~/Documents/{filename}")
 
-    def base_method_delete_all_file_in_documents_by_cmd(self):
+    def delete_all_file_in_documents_by_cmd(self):
         """通过给定名称在 文档 目录下删除所有文件"""
         self.run_cmd(f"rm ~/Documents/*")
 
-    def base_method_kill_process_by_cmd(self, process):
+    def kill_process_by_cmd(self, process):
         """通过命令关闭进程"""
         self.run_cmd(f"killall {process}")
 
-    def base_method_get_process_status(cls, app: str, grep_list: str = None) -> bool:
+    @classmethod
+    def get_process_status(cls, app: str, grep_list: str = None) -> bool:
         """
          获取进程状态
         :param app: 应用包名

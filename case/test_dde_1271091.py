@@ -9,7 +9,7 @@ class TestDdeCase(BaseCase):
     def test_dde_1271091_1(self):
         """在文本编辑器中对修改内容进行保存"""
         euler = DdeMethod()
-        euler.base_method_create_file_in_documents_by_cmd("test.txt")
+        euler.create_file_in_documents_by_cmd("test.txt")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         euler.deepin_editor.click_menu_btn_by_attr()
@@ -27,7 +27,7 @@ class TestDdeCase(BaseCase):
     def test_dde_1271091_2(self):
         """在文本编辑器中对修改内容进行保存"""
         euler = DdeMethod()
-        euler.base_method_create_file_in_documents_by_cmd("test.txt")
+        euler.create_file_in_documents_by_cmd("test.txt")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         euler.deepin_editor.click_menu_btn_by_attr()
@@ -47,5 +47,5 @@ class TestDdeCase(BaseCase):
         yield
         DdeMethod().deepin_editor.close_tab_by_attr("test.txt")
         DdeMethod().deepin_editor.quit_editor_by_ocr()
-        DdeMethod().base_method_delete_file_in_documents_by_cmd("test.txt")
+        DdeMethod().delete_file_in_documents_by_cmd("test.txt")
         sleep(3)

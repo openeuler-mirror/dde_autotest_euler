@@ -14,12 +14,12 @@ class BrowserMethod(BaseMethod):
 
     def click_menu_icon_by_img(self):
         """在浏览器中点击右上角的菜单按钮"""
-        self.base_method_click_by_img("firefox_menu_icon.png")
+        self.click_by_img("firefox_menu_icon.png")
 
     def click_close_btn_by_attr(self):
         """在浏览器中点击右上角的关闭按钮"""
-        self.base_method_click_by_img("firefox_close_btn.png")
+        self.click_by_img("firefox_close_btn.png")
 
     def right_click_by_ocr(self, text):
         """在浏览器中通过属性右键点击对应的标签页"""
-        self.base_method_click_by_ocr(text)
+        self.click_by_ocr(text)

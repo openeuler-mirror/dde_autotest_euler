@@ -97,9 +97,9 @@ class DdeMethod(Src):
     def close_window(self):
         """关闭窗口"""
         try:
-            self.dde_control_center.base_method_click_by_img("close_window_btn.png")
+            self.dde_control_center.click_by_img("close_window_btn.png")
         except custom_exception.TemplateElementNotFound:
-            self.dde_control_center.base_method_click_by_img(f"close_window_btn_1.png")
+            self.dde_control_center.click_by_img(f"close_window_btn_1.png")
 
     def delete_keyboard_layout_in_control_center(self):
         """在控制中心的键盘布局视图删除除选中之外的布局"""
@@ -271,7 +271,7 @@ class DdeMethod(Src):
 
     def delete_network_dsl_by_control_center(self):
         """在控制中心的网络DSL模块中删除添加的测试DSL连接"""
-        self.dde_control_center.base_method_click_by_img("dsl_connection_details_btn.png")
+        self.dde_control_center.click_by_img("dsl_connection_details_btn.png")
         self.dde_control_center.click_by_attr("Btn_删 除")
         sleep(1)
         self.dde_control_center.click_by_attr("Btn_删 除_1")
@@ -321,8 +321,8 @@ class DdeMethod(Src):
 
     def click_documents_in_pop_window_by_img(self):
         """在文本编辑器的文件管理器弹窗中点击左侧 文档 目录"""
-        self.base_method_click_by_ocr("系统盘")
-        self.deepin_editor.base_method_click_by_img("file_manager_left_view_documents.png")
+        self.click_by_ocr("系统盘")
+        self.deepin_editor.click_by_img("file_manager_left_view_documents.png")
 
     def rename_file_in_pop_window_by_attr(self, filename):
         """在弹出的文件保存窗口中对文件进行重命名并且保存,文件名需要包含后缀名，且文件名不可与文档目录下其他文件重复"""
@@ -371,7 +371,7 @@ class DdeMethod(Src):
 
     def export_all_log_by_attr(self):
         """导出所有的日志"""
-        self.deepin_log_viewer.base_method_click_by_img("deepin_log_viewer_export_all_log_icon.png")
+        self.deepin_log_viewer.click_by_img("deepin_log_viewer_export_all_log_icon.png")
         sleep(2)
         self.deepin_log_viewer.deepin_log_viewer_input_root_password()
         self.click_documents_in_pop_window_by_img()

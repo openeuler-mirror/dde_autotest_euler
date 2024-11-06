@@ -94,5 +94,5 @@ class AssertMethod(AssertCommon):
         :param app: 应用名字
         """
         logger.info(f"断言应用进程状态{app}与期望{expect}是否相同")
-        if expect != BaseMethod().base_method_get_process_status(app):
+        if expect != BaseMethod.get_process_status(app):
             raise AssertionError(f"断言应用进程状态{app}与期望{expect}不相同")
