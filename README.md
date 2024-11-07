@@ -4,18 +4,23 @@ DDE Autotest for openEuler, based on [YouQu](https://youqu.uniontech.com/).
 
 **openEuler** 系统 **DDE** 桌面自动化测试。
 
-## 安装
+[![star](https://gitee.com/openeuler/dde_autotest_euler/badge/star.svg?theme=white)](https://gitee.com/openeuler/dde_autotest_euler/stargazers)
+[![fork](https://gitee.com/openeuler/dde_autotest_euler/badge/fork.svg?theme=white)](https://gitee.com/openeuler/dde_autotest_euler/members)
 
-1、安装 [欧拉](https://www.openeuler.org/zh/download/) **24.03 LTS**
+## 安装系统
 
-2、通过以下步骤切换 DDE 桌面环境：
+- 安装 [openEuler](https://www.openeuler.org/zh/download/) **24.03 LTS**
 
-```bash
-sudo yum install dde -y
-sudo systemctl set-default graphical.target
-sudo reboot
-```
-3、修改分辨率为：1920 x 1080
+- 通过以下步骤切换 DDE 桌面环境：
+
+    ```bash
+    sudo yum install dde -y
+    sudo systemctl set-default graphical.target
+    sudo reboot
+    ```
+    
+
+![](./imgs/20241107142721.jpg)
 
 ## 环境部署
 
@@ -25,13 +30,24 @@ sudo reboot
 
 ```bash
 sudo pip3 install youqu
-
 # 初始化工程
 youqu-startproject dde
-
 # 克隆用例仓库
 cd dde/apps/
 git clone https://gitee.com/openeuler/dde_autotest_euler.git
+```
+
+```bash
+dde/apps/
+├── dde_autotest_euler
+│   ├── __init__.py
+│   ├── case
+│   ├── method
+│   ├── config.py
+│   ├── conftest.py
+│   ├── dde.csv
+│   ├── LICENSE
+│   └── README.md
 ```
 
 **配置测试机的密码**
@@ -65,13 +81,13 @@ python3 manage.py run
 
 ## 提交规范
 
-1、每次提交的 PR 只能包含一条提交。
+- 每次提交的 PR 只能包含一条提交。
 
-2、提交 PR 时要在标题中对提交的内容进行简单描述，要求清晰明了。
+- 提交 PR 时要在标题中对提交的内容进行简单描述，要求清晰明了。
 
-3、PR 的内容应当是有价值的，无关紧要的内容或非常简单的优化可以与其他内容一起提交。
+- PR 的内容应当是有价值的，无关紧要的内容或非常简单的优化可以与其他内容一起提交。
 
-4、提交的代码应当注重规范性，提交前要对代码的格式与内容进行检查。
+- 提交的代码应当注重规范性，提交前要对代码的格式与内容进行检查。
 
 ## 常见问题
 Q: OCR识别、图像识别服务器不可用？
@@ -81,3 +97,7 @@ Q: OCR识别、图像识别服务器不可用？
 ## 用例列表
 
 [在线表格](https://doc.weixin.qq.com/sheet/e3_Ab8A1gYLABUA8lV99qfQWO7XU3Vhn?scode=AEoAsgdxAAYAl5RLlkAJgAbQaKAB8&tab=BB08J2)
+
+
+
+[![Fork me on Gitee](https://gitee.com/openeuler/dde_autotest_euler/widgets/widget_2.svg)](https://gitee.com/openeuler/dde_autotest_euler)

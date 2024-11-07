@@ -1,9 +1,12 @@
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
 from src import sleep
+import pytest
 
 
 class TestDdeCase(BaseCase):
+
+    @pytest.mark.timeout(100000)
     def test_dde_1270989(self):
         """控制中心中手动修改时间"""
         euler = DdeMethod()

@@ -21,21 +21,21 @@ class DeepinEditorMethod(BaseMethod):
 
     def choose_open_file_option_by_ocr(self):
         """在文本编辑器的菜单栏中选择 打开文件 选项"""
-        self.ocrx("打开文件").click()
+        self.click(*self.ocr("打开文件"))
 
     def choose_save_as_option_by_ocr(self):
         """在文本编辑器的的菜单栏中选择 另存为 选项"""
-        self.ocrx("另存为").click()
+        self.click(*self.ocr("另存为"))
 
     def choose_save_option_by_ocr(self):
         """在文本编辑器的的菜单栏中选择 保存 选项"""
-        self.ocrx("保存").click()
+        self.click(*self.ocr("保存"))
 
     def quit_editor_by_ocr(self):
         """通过菜单栏退出文本编辑器"""
         self.click_menu_btn_by_attr()
         sleep(2)
-        self.ocrx("退出").click()
+        self.click(*self.ocr("退出"))
 
     def close_tab_by_attr(self, tab_name):
         """在文本编辑器中通过元素，通过右键关闭标签（适用于修改，不适用于新建的标签）"""

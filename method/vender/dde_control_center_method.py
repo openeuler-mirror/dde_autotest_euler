@@ -83,3 +83,4 @@ class DdeControlCenterMethod(BaseMethod):
 
     def kill_dde_control_center(self):
         self.kill_process("dde-control-center")
+        self.esc()

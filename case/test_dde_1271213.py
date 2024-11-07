@@ -20,4 +20,4 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """关闭字体管理器"""
-        DdeMethod().dde_dock.kill_process("deepin-font-manager")
+        DdeMethod().kill_process("deepin-font-manager")

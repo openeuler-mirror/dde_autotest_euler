@@ -95,13 +95,6 @@ class DdeMethod(Src):
         ShortCut.enter()
         sleep(2)
 
-    def close_window(self):
-        """关闭窗口"""
-        try:
-            self.dde_control_center.click_by_img("close_window_btn.png")
-        except custom_exception.TemplateElementNotFound:
-            self.dde_control_center.click_by_img(f"close_window_btn_1.png")
-
     def delete_keyboard_layout_in_control_center(self):
         """在控制中心的键盘布局视图删除除选中之外的布局"""
         self.dde_control_center.click_edit_btn_in_keyboard_layout()
@@ -182,7 +175,8 @@ class DdeMethod(Src):
         sleep(3)
         self.dde_control_center.click_by_attr("Btn_创建")
         sleep(1)
-        self.input_message(self.account_message)
+        from setting import conf
+        self.input_message(conf.PASSWORD)
         sleep(3)
         self.enter()
         sleep(5)
@@ -243,7 +237,7 @@ class DdeMethod(Src):
     def change_resolution_by_control_center(self):
         """在控制中心中修改屏幕分辨率"""
         self.dde_control_center.enter_view_by_search_box("xianshi")
-        self.dde_control_center.click_by_attr("1920×1080")
+        self.dde_control_center.click_by_attr("1024×768 (推荐)")
         self.dde_control_center.click_by_attr("1280×800")
         sleep(1)
         self.dde_control_center.click_by_attr("Btn_保存")
@@ -252,7 +246,7 @@ class DdeMethod(Src):
     def reset_resolution_by_control_center(self):
         """在控制中心中将修改的分辨率调回1920x1080"""
         self.dde_control_center.click_by_attr("1280×800")
-        self.dde_control_center.click_by_attr("1920×1080")
+        self.dde_control_center.click_by_attr("1024×768 (推荐)")
         sleep(1)
         self.dde_control_center.click_by_attr("Btn_保存")
         sleep(2)
@@ -322,8 +316,8 @@ class DdeMethod(Src):
 
     def click_documents_in_pop_window_by_img(self):
         """在文本编辑器的文件管理器弹窗中点击左侧 文档 目录"""
-        self.click_by_ocr("系统盘")
-        self.deepin_editor.click_by_img("file_manager_left_view_documents.png")
+        self.dde_desktop.click_by_ocr("系统盘")
+        self.dde_desktop.click_by_img("file_manager_left_view_documents.png")
 
     def rename_file_in_pop_window_by_attr(self, filename):
         """在弹出的文件保存窗口中对文件进行重命名并且保存,文件名需要包含后缀名，且文件名不可与文档目录下其他文件重复"""
@@ -374,7 +368,8 @@ class DdeMethod(Src):
         """导出所有的日志"""
         self.deepin_log_viewer.click_by_img("deepin_log_viewer_export_all_log_icon.png")
         sleep(2)
-        self.deepin_log_viewer.deepin_log_viewer_input_root_password()
+        from apps.dde_autotest_euler.method.vender.dde_polkit_agent_method import DdePolkitAgentMethod
+        DdePolkitAgentMethod().input_password()
         self.click_documents_in_pop_window_by_img()
         self.click_save_btn_in_pop_window()
         sleep(1)

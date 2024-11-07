@@ -15,4 +15,4 @@ class TestDdeCase(BaseCase):
     def teardown_method(self):
         """将分辨率重置，关闭控制中心窗口"""
         DdeMethod().reset_resolution_by_control_center()
-        DdeMethod().close_window()
+        

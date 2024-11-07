@@ -1,3 +1,5 @@
+import pytest
+
 from src import Src
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from src import sleep
@@ -24,3 +26,12 @@ class TestDdeCase(BaseCase):
         Src.alt_f4()
         sleep(3)
         self.assert_process_status(False, "deepin-editor")
+
+
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        DdeMethod().kill_process("dde-file-manager")
+        DdeMethod().kill_process("deepin-editor")
+        yield
+        DdeMethod().kill_process("dde-file-manager")
+        DdeMethod().kill_process("deepin-editor")

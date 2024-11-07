@@ -9,13 +9,13 @@ class TestDdeCase(BaseCase):
     def test_dde_1271091_1(self):
         """在文本编辑器中对修改内容进行保存"""
         euler = DdeMethod()
-        euler.create_file_in_documents_by_cmd("test.txt")
+        euler.dde_dock.create_file_in_documents_by_cmd("test.txt")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         euler.deepin_editor.click_menu_btn_by_attr()
         euler.deepin_editor.choose_open_file_option_by_ocr()
         sleep(3)
-        euler.deepin_editor.click_documents_in_pop_window_by_img()
+        euler.click_documents_in_pop_window_by_img()
         sleep(2)
         Src.ctrl_a()
         Src.enter()
@@ -27,13 +27,13 @@ class TestDdeCase(BaseCase):
     def test_dde_1271091_2(self):
         """在文本编辑器中对修改内容进行保存"""
         euler = DdeMethod()
-        euler.create_file_in_documents_by_cmd("test.txt")
+        euler.dde_dock.create_file_in_documents_by_cmd("test.txt")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
         euler.deepin_editor.click_menu_btn_by_attr()
         euler.deepin_editor.choose_open_file_option_by_ocr()
         sleep(3)
-        euler.deepin_editor.click_documents_in_pop_window_by_img()
+        euler.click_documents_in_pop_window_by_img()
         sleep(2)
         Src.ctrl_a()
         Src.enter()
@@ -44,8 +44,12 @@ class TestDdeCase(BaseCase):
     @pytest.fixture(autouse=True)
     def clear_test_file(self):
         """删除测试文件，关闭文本编辑器窗口"""
+        DdeMethod().kill_process("dde-file-manager")
+        DdeMethod().kill_process("deepin-editor")
         yield
         DdeMethod().deepin_editor.close_tab_by_attr("test.txt")
         DdeMethod().deepin_editor.quit_editor_by_ocr()
-        DdeMethod().delete_file_in_documents_by_cmd("test.txt")
+        DdeMethod().dde_dock.delete_file_in_documents_by_cmd("test.txt")
         sleep(3)
+        DdeMethod().kill_process("dde-file-manager")
+        DdeMethod().kill_process("deepin-editor")

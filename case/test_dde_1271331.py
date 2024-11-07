@@ -19,5 +19,5 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """关闭窗口"""
-        DdeMethod().dde_dock.kill_process("deepin-terminal")
+        DdeMethod().kill_process("deepin-terminal")
         time.sleep(2)

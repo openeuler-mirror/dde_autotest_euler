@@ -1,3 +1,5 @@
+import pytest
+
 from src import Src
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
@@ -15,9 +17,11 @@ class TestDdeCase(BaseCase):
         Src.enter()
         sleep(6)
         DdeMethod().browser.click_menu_icon_by_img()
-        self.assert_ocr_exist("退出")
+        self.assert_ocr_exist("同步")
 
-    def teardown_method(self):
+    @pytest.fixture(autouse=True)
+    def clear(self):
         """关闭Firefox浏览器"""
-        DdeMethod().browser.click_close_btn_by_attr()
-        sleep(2)
+        DdeMethod().kill_process("firefox")
+        yield
+        DdeMethod().kill_process("firefox")
