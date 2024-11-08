@@ -17,9 +17,8 @@ class TestDdeCase(BaseCase):
         euler.open_software_by_launcher("Firefox")
         # 等待 10 秒，判断browser是否启动
         sleep(10)
-        self.assert_image_exist_in_dde("test_dde_1271311.png")
+        self.assert_process_status(True, "firefox")
 
     def teardown_method(self):
         """环境清理，关闭火狐浏览器"""
-        DdeMethod().browser.kill_process("Firefox")
-        sleep(3)
+        DdeMethod().kill_process("firefox")

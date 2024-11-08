@@ -5,6 +5,7 @@ from src import Src
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271201(self):
         """检查设备管理器的设备信息导出"""
         euler = DdeMethod()
@@ -13,8 +14,8 @@ class TestDdeCase(BaseCase):
         euler.export_file_by_attr("概况")
         euler.open_software_by_launcher("wenbenbianjiqi")
         sleep(6)
-        euler.deepin_editor.deepin_editor.click_menu_btn_by_attr()
-        euler.deepin_editor.deepin_editor.choose_open_file_option_by_ocr()
+        euler.deepin_editor.click_menu_btn_by_attr()
+        euler.deepin_editor.choose_open_file_option_by_ocr()
         euler.click_documents_in_pop_window_by_img()
         Src.ctrl_a()
         Src.enter()

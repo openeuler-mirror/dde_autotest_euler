@@ -1,3 +1,5 @@
+import pytest
+
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from src import sleep
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
@@ -29,7 +31,10 @@ class TestDdeCase(BaseCase):
         sleep(3)
         self.assert_ocr_exist("系统监视器")
 
-    def teardown_method(self):
-        """通过命令关闭启动器"""
-        DdeMethod().kill_process("dde-launcher")
-        sleep(3)
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        DdeMethod().click_restore()
+        sleep(1)
+        yield
+        DdeMethod().click_restore()
+        sleep(2)

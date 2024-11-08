@@ -6,6 +6,7 @@ from apps.dde_autotest_euler.method.vender.dde_dock_method import DdeDockMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271295(self):
         """查看系统信息—版本协议"""
         DdeDockMethod().click_control_center_btn_by_attr()

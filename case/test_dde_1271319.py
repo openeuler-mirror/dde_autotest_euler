@@ -1,3 +1,5 @@
+import pytest
+
 from src import sleep
 from src import Src
 from apps.dde_autotest_euler.case.base_case import BaseCase
@@ -5,6 +7,7 @@ from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271319_1(self):
         """任务栏-应用区域的添加&移除"""
         euler = DdeMethod()
@@ -32,7 +35,7 @@ class TestDdeCase(BaseCase):
         sleep(2)
         euler.dde_launcher.right_click_by_attr("看图")
         Src.select_menu(3)
-        Src.win_left()
+        Src.press_key("win")
         sleep(2)
         self.assert_element_exist("$/dde-dock//Btn_看图")
         euler.dde_dock.right_click_by_attr("Btn_看图")
@@ -40,7 +43,10 @@ class TestDdeCase(BaseCase):
         sleep(2)
         self.assert_element_not_exist("$/dde-dock//Btn_看图")
 
-    def teardown_method(self):
-        """通过命令关闭启动器"""
-        DdeMethod().kill_process("dde-launcher")
-        sleep(3)
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        DdeMethod().click_restore()
+        sleep(1)
+        yield
+        DdeMethod().click_restore()
+        sleep(2)

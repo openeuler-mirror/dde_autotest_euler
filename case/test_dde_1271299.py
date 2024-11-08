@@ -7,7 +7,8 @@ class TestDdeCase(BaseCase):
     def test_dde_1271299(self):
         """添加系统语言"""
         DdeMethod().add_english_system_language_in_control_center()
-        self.assert_element_exist("$/dde-control-center//American English - 美国英语")
+        sleep(2)
+        self.assert_ocr_exist("语言列表", "美国英语")
 
     def teardown_method(self):
         """清理环境，将新增的系统语言删除"""
