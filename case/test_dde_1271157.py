@@ -1,6 +1,8 @@
-from src import sleep
+import pytest
+
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
+from src import sleep
 
 
 class TestDdeCase(BaseCase):
@@ -9,11 +11,13 @@ class TestDdeCase(BaseCase):
         euler = DdeMethod()
         euler.open_software_by_launcher("rizhishoujigongju")
         sleep(6)
-        euler.deepin_log_viewer.deepin_log_viewer_input_root_password()
+        euler.dde_polkit_agent.input_password()
         euler.export_all_log_by_attr()
         self.assert_image_exist_in_dde("test_dde_1271169")
 
-    def teardown_method(self):
-        """通过命令关闭日志收集工具"""
-        DdeMethod().dde_dock.kill_process_by_cmd("deepin-log-viewer")
-        DdeMethod().dde_dock.delete_all_file_in_documents_by_cmd()
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        """关闭Firefox浏览器"""
+        DdeMethod().kill_process("deepin-log-viewer")
+        yield
+        DdeMethod().kill_process("deepin-log-viewer")

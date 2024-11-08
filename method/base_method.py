@@ -32,11 +32,11 @@ class BaseMethod(Src):
 
     def click_by_ocr(self, text):
         """通过ocr识别点击"""
-        self.ocrx(text).click()
+        self.click(*self.ocr(text))
 
     def double_click_by_ocr(self, text):
         """通过ocr识别双击"""
-        self.ocrx(text).double_click()
+        self.double_click(*self.ocr(text))
 
     def click_by_img(self, img_name):
         """通过图像识别点击"""
@@ -48,7 +48,7 @@ class BaseMethod(Src):
 
     def right_click_by_ocr(self, text):
         """通过ocr识别右键点击"""
-        self.ocrx(text).right_click()
+        self.right_click(*self.ocr(text))
 
     def right_click_by_img(self, img_name):
         """通过图片识别右键点击"""
@@ -66,10 +66,6 @@ class BaseMethod(Src):
     def delete_all_file_in_documents_by_cmd(self):
         """通过给定名称在 文档 目录下删除所有文件"""
         self.run_cmd(f"rm ~/Documents/*")
-
-    def kill_process_by_cmd(self, process):
-        """通过命令关闭进程"""
-        self.run_cmd(f"killall {process}")
 
     @classmethod
     def get_process_status(cls, app: str, grep_list: str = None) -> bool:

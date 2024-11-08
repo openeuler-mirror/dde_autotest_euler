@@ -8,7 +8,7 @@ class TestDdeCase(BaseCase):
     def test_dde_1271247(self):
         """终端关闭"""
         app_name = "deepin-terminal"
-        DdeMethod().dde_dock.kill_process_by_cmd(app_name)
+        DdeMethod().kill_process(app_name)
         Src.ctrl_alt_t()
         sleep(6)
         DdeMethod().deepin_terminal.click_option_by_attr()

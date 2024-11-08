@@ -31,5 +31,5 @@ class TestDdeCase(BaseCase):
 
     def teardown_method(self):
         """通过命令关闭启动器"""
-        DdeMethod().dde_dock.kill_process_by_cmd("dde-launcher")
+        DdeMethod().kill_process("dde-launcher")
         sleep(3)

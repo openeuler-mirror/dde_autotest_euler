@@ -12,7 +12,7 @@ class TestDdeCase(BaseCase):
         sleep(1)
         # 等待 1 秒，判断launcher是否启动
         self.assert_image_exist_in_dde("test_dde_1271309.png")
-        DdeMethod().dde_dock.kill_process_by_cmd("dde-launcher")
+        DdeMethod().kill_process("dde-launcher")
         sleep(3)
         self.assert_image_not_exist_in_dde("test_dde_1271309.png")
         sleep(3)

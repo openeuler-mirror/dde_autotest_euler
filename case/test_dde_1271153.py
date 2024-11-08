@@ -1,7 +1,8 @@
+import pytest
+
 from src import sleep
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
-from src import Src
 
 
 class TestDdeCase(BaseCase):
@@ -12,6 +13,10 @@ class TestDdeCase(BaseCase):
         sleep(2)
         self.assert_process_status(True, "deepin-compressor")
 
-    def teardown_method(self):
-        """"""
-        Src.alt_f4()
+
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        """关闭Firefox浏览器"""
+        DdeMethod().kill_process("deepin-compressor")
+        yield
+        DdeMethod().kill_process("deepin-compressor")

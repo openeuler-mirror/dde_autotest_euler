@@ -3,6 +3,7 @@ from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271031_1(self):
         """删除普通账户（非当前登陆）"""
         euler = DdeMethod()

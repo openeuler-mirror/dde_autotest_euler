@@ -22,9 +22,10 @@ class TestDdeCase(BaseCase):
         sleep(1)
         euler.click_save_btn_in_pop_window()
         sleep(1)
-        DdeMethod().dde_dock.kill_process_by_cmd("deepin-draw")
+        DdeMethod().kill_process("deepin-draw")
         sleep(2)
         euler.open_software_by_launcher("wenjianguanliqi")
+        sleep(5)
         euler.dde_dock.click_by_ocr("主目录")
         euler.dde_dock.double_click_by_ocr("未命名")
         sleep(5)
@@ -34,6 +35,6 @@ class TestDdeCase(BaseCase):
     def clear_file_in_home_and_kill_process(self):
         """清除测试文件，关闭进程"""
         yield
-        DdeMethod().dde_dock.kill_process_by_cmd("deepin-draw")
-        DdeMethod().dde_dock.kill_process_by_cmd("dde-file-manager")
+        DdeMethod().kill_process("deepin-draw")
+        DdeMethod().kill_process("dde-file-manager")
         Cmd.run_cmd("rm ~/未命名.ddf")
