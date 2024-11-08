@@ -4,6 +4,7 @@ from src import sleep
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271213_1(self):
         """在字体管理器中搜索字体名称"""
         DdeMethod().open_software_by_launcher("zitiguanli")

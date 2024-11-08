@@ -25,9 +25,10 @@ class TestDdeCase(BaseCase):
         sleep(1)
         euler.dde_dock.right_click_datetime_icon_by_attr()
         Src.select_menu(2)
-        sleep(2)
+        sleep(3)
         self.assert_ocr_exist("时间日期")
 
     def teardown_method(self):
         """通过命令关闭控制中心窗口"""
         DdeMethod().kill_process("dde-calendar")
+        DdeMethod().kill_process("dde-control-center")

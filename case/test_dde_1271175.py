@@ -7,7 +7,7 @@ from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
-    def test_dde_1271175(self, clear_file_in_home_and_kill_process):
+    def test_dde_1271175(self):
         """系统监视器-重启系统服务"""
         euler = DdeMethod()
         euler.open_software_by_launcher("xitongjianshiqi")
@@ -22,7 +22,7 @@ class TestDdeCase(BaseCase):
         Src.enter()
         self.assert_ocr_exist("已启动")
 
-    @pytest.fixture
+    @pytest.fixture(autouse=True)
     def clear_file_in_home_and_kill_process(self):
         """关闭进程"""
         yield

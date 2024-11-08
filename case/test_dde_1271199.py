@@ -1,9 +1,12 @@
+import pytest
+
 from src import sleep
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271199(self):
         """检查设备管理器的各模块信息显示"""
         euler = DdeMethod()
@@ -24,10 +27,10 @@ class TestDdeCase(BaseCase):
         self.assert_ocr_exist("中断")
         sleep(1)
         euler.deepin_devicemanager.click_by_attr("音频适配器")
-        self.assert_ocr_exist("芯片")
+        self.assert_ocr_exist("时钟频率")
         sleep(1)
         euler.deepin_devicemanager.click_by_attr("存储设备")
-        self.assert_ocr_exist("设备文件")
+        self.assert_ocr_exist("固件版本")
         sleep(1)
         euler.deepin_devicemanager.click_by_attr("鼠标")
         self.assert_ocr_exist("型号")
@@ -38,7 +41,9 @@ class TestDdeCase(BaseCase):
         euler.deepin_devicemanager.click_by_attr("光驱")
         self.assert_ocr_exist("总线信息")
 
-    def teardown_method(self):
+    @pytest.fixture(autouse=True)
+    def clear(self):
         """通过命令关闭启动器"""
         DdeMethod().kill_process("deepin-devicemanager")
-        sleep(3)
+        yield
+        DdeMethod().kill_process("deepin-devicemanager")

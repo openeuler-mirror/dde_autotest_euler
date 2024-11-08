@@ -5,6 +5,7 @@ from src import Src
 
 
 class TestDdeCase(BaseCase):
+
     def test_dde_1271247(self):
         """终端关闭"""
         app_name = "deepin-terminal"
@@ -15,13 +16,14 @@ class TestDdeCase(BaseCase):
         sleep(1)
         DdeMethod().dde_dock.click_by_ocr("远程管理")
         sleep(1)
-        x, y = Src.ocrx("未添加").result
+        x, y = Src.ocr("未添加")
         Src.click(x - 150, y)
         self.assert_ocr_not_exist("未添加")
-
         Src.alt_f4()
         sleep(1)
         self.assert_process_status(False, app_name)
 
     def teardown_method(self):
         Src.alt_f4()
+        DdeMethod().kill_process("deepin-terminal")
+

@@ -4,6 +4,7 @@
 :Author:uos
 :Date  :2024/08/22 13:15:47
 """
+import pytest
 
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from src import sleep
@@ -21,9 +22,14 @@ class TestDdeCase(BaseCase):
         sleep(1)
         self.assert_ocr_exist("搜索")
         sleep(1)
-        DdeMethod().click_by_img("launcher_power_btn.png")
+        DdeMethod().dde_dock.click_by_img("launcher_power_btn.png")
         sleep(1)
         self.assert_ocr_exist("关机")
-        Src.click(10, 10)
-        euler.click_restore()
+
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        DdeMethod().click_restore()
         sleep(1)
+        yield
+        DdeMethod().click_restore()
+        sleep(2)

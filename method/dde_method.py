@@ -378,4 +378,6 @@ class DdeMethod(Src):
         """
         点击左上角
         """
-        self.click(10, 10)
+        for i in range(2):
+            self.click(10, 10)
+            self.esc()

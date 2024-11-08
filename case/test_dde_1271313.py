@@ -4,6 +4,7 @@
 :Author:uos
 :Date  :2024/08/22 13:15:47
 """
+import pytest
 
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from src import sleep
@@ -25,14 +26,17 @@ class TestDdeCase(BaseCase):
     def test_dde_1271313_2(self):
         """通过按键win打开启动器"""
         sleep(2)
-        Src.win_left()
+        Src.press_key("win")
 
         # 等待 1 秒，判断launcher是否启动
         sleep(1)
         self.assert_ocr_exist("搜索")
         sleep(1)
 
-    def teardown_method(self):
-        """通过命令关闭启动器"""
-        DdeMethod().kill_process("dde-launcher")
-        sleep(3)
+    @pytest.fixture(autouse=True)
+    def clear(self):
+        DdeMethod().click_restore()
+        sleep(1)
+        yield
+        DdeMethod().click_restore()
+        sleep(2)
