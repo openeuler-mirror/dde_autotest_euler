@@ -42,6 +42,10 @@ class BaseMethod(Src):
         """通过图像识别点击"""
         self.click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
 
+    def right_click_by_img(self, img_name):
+        """通过图像识别右键点击"""
+        self.right_click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
+
     def double_click_by_img(self, img_name):
         """通过图像识别双击"""
         self.double_click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
