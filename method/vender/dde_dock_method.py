@@ -44,3 +44,7 @@ class DdeDockMethod(BaseMethod):
     def click_datetime_icon_by_attr(self):
         """在任务栏中通过元素点击右下角时间区域"""
         self.click_by_attr("Btn_datetime")
+
+    def right_click_trash_icon_by_attr(self):
+        """在任务栏中通过元素点击右下角回收站"""
+        self.right_click_by_attr("Btn_trash")

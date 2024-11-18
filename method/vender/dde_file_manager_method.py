@@ -66,3 +66,23 @@ class DdeFileManagerMethod(BaseMethod):
                 self.right_click()
             except:
                 raise ElementNotFound(file_name)
+
+    def click_empty_btn_in_right_view_by_attr(self):
+        """点击回收站右上方的清空按钮"""
+        self.dog.element_click("EmptyTrashButton")
+
+    def click_empty_confirm_btn_by_img(self):
+        """回收站清空按钮弹窗，点击确认"""
+        self.click_by_img("trash_empty_confirm.png")
+
+    def click_empty_cancle_btn_by_img(self):
+        """回收站清空按钮弹窗，点击取消"""
+        self.click_by_img("trash_empty_cancle.png")
+
+    def click_empty_x_btn_by_img(self):
+        """回收站清空按钮弹窗，点击x"""
+        self.click_by_img("trash_empty_cancle.png")
+
+    def right_click_trash_in_desktop_by_image(self):
+        """桌面，右键回收站(有文件)"""
+        self.right_click_by_img("desktop_trash_no_empty.png")
