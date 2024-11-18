@@ -16,7 +16,7 @@ class TestDdeFileManagerCase(BaseCase):
         yield
         Cmd.run_cmd("rm -rf ~/Documents/*")
         Cmd.run_cmd("rm -rf /home/uos/.local/share/Trash/files/*")
-        Src.kill_process("dde-file-manage")
+        Src.kill_process("dde-file-manager")
 
     @pytest.fixture(scope="function", autouse=False)
     def setup_teardown_1271281_5(self):
@@ -59,7 +59,7 @@ class TestDdeFileManagerCase(BaseCase):
         self.assert_ocr_exist("您确定要清空回收站")
         # 5. 在系统弹出提示对话框后，点击确定按钮，查看系统显示
         # 5. 系统会自动清空当前回收站中所有文件，清空回收站后上方的按钮会自动隐藏
-        euler.dde_file_manager.click_empty_confirm_btn_by_img()
+        euler.dde_file_manager.click_empty_confirm_btn_by_image()
         sleep(1)
         self.assert_file_not_exist("/home/uos/.local/share/Trash/files/test1")
         self.assert_image_not_exist_in_dde("test_dde_1271281_1")
@@ -84,9 +84,9 @@ class TestDdeFileManagerCase(BaseCase):
         euler.dde_file_manager.click_empty_btn_in_right_view_by_attr()
         sleep(3)
         if operate == 'cancle':
-            euler.dde_file_manager.click_empty_cancle_btn_by_img()
+            euler.dde_file_manager.click_empty_cancle_btn_by_image()
         elif operate == 'x':
-            euler.dde_file_manager.click_empty_x_btn_by_img()
+            euler.dde_file_manager.click_empty_x_btn_by_image()
         elif operate == 'esc':
             Src.esc()
         sleep(1)
@@ -107,7 +107,7 @@ class TestDdeFileManagerCase(BaseCase):
         Src.down()
         Src.enter()
         sleep(1)
-        euler.dde_file_manager.click_empty_confirm_btn_by_img()
+        euler.dde_file_manager.click_empty_confirm_btn_by_image()
         sleep(1)
         self.assert_file_not_exist("/home/uos/.local/share/Trash/files/test1")
 

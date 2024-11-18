@@ -16,7 +16,7 @@ class TestDdeFileManagerCase(BaseCase):
         yield
         Cmd.run_cmd("rm -rf ~/Documents/*")
         Cmd.run_cmd("rm -rf /home/uos/.local/share/Trash/files/*")
-        Src.kill_process("dde-file-manage")
+        Src.kill_process("dde-file-manager")
 
     def test_dde_1271283_1(self):
         """文件管理器——还原文件"""
