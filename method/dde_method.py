@@ -22,6 +22,7 @@ from apps.dde_autotest_euler.method.vender.dde_launcher_method import DdeLaunche
 from apps.dde_autotest_euler.method.vender.deepin_draw_method import DeepinDrawMethod
 from apps.dde_autotest_euler.method.vender.deepin_system_monitor_method import DeepinSystemMonitorMethod
 from apps.dde_autotest_euler.method.vender.deepin_terminal_method import DeepinTerminalMethod
+from apps.dde_autotest_euler.method.vender.dde_file_manager_method import DdeFileManagerMethod
 
 from src import log
 from src.shortcut import ShortCut
@@ -86,6 +87,9 @@ class DdeMethod(Src):
     def dde_desktop(self):
         return DdeDesktopMethod()
 
+    @property
+    def dde_file_manager(self):
+        return DdeFileManagerMethod()
 
     def open_software_by_launcher(self, text):
         """通过启动器打开软件"""
