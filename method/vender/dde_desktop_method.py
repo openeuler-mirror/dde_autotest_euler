@@ -100,3 +100,11 @@ class DdeDesktopMethod(BaseMethod):
     def click_dialog_x_btn_by_image(self):
         """回收站清空按钮弹窗，点击x"""
         self.click_by_img("trash_empty_x.png")
+
+    def double_click_terminal_by_img(self):
+        """双击终端"""
+        self.double_click_by_img("desktop_terminal.png")
+
+    def right_click_terminal_by_img(self):
+        """双击终端"""
+        self.right_click_by_img("desktop_terminal.png")
