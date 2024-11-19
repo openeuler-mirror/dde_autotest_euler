@@ -86,7 +86,7 @@ class DdeFileManagerMethod(BaseMethod):
 
     def click_empty_x_btn_by_image(self):
         """回收站清空按钮弹窗，点击x"""
-        self.click_by_img("trash_empty_cancle.png")
+        self.click_by_img("trash_empty_x.png")
 
     def right_click_trash_in_desktop_by_image(self):
         """桌面，右键回收站(有文件)"""
