@@ -53,3 +53,7 @@ class DdeDockMethod(BaseMethod):
     def get_x_y_terminal_icon_by_attr(self):
         """在任务栏中，鼠标移动到终端图标"""
         return self.dog.element_center("Btn_终端")
+
+    def right_click_terminal_icon_by_attr(self):
+        """在任务栏中，右键终端图标"""
+        self.right_click_by_attr("Btn_终端")
