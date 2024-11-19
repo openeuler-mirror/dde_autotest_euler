@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from apps.dde_autotest_euler.method.base_method import BaseMethod
-from src import Src, sleep, ElementNotFound
+from src import sleep, ElementNotFound
 from src.depends.dogtail.tree import SearchError
+from apps.dde_autotest_euler.config import config
 
 class DdeFileManagerMethod(BaseMethod):
 
@@ -14,10 +15,6 @@ class DdeFileManagerMethod(BaseMethod):
         """在文管中通过元素点击"""
         self.dog.element_click(path)
 
-    def click_center_in_right_view_by_attr(self):
-        """点击右侧内容区域的空白处"""
-        self.click(*self.dog.element_center("DMainWindow"))
-
     def click_trash_dir_in_left_view_by_attr(self):
         """文管侧边栏点击，回收站目录"""
         self.click_by_attr("回收站")
@@ -29,6 +26,10 @@ class DdeFileManagerMethod(BaseMethod):
     def click_desktop_dir_in_left_view_by_attr(self):
         """文管侧边栏点击，桌面目录"""
         self.click_dir_in_left_view_by_attr("桌面")
+
+    def click_video_dir_in_left_view_by_attr(self):
+        """文管侧边栏点击，视频目录"""
+        self.click_dir_in_left_view_by_attr("视频")
 
     def click_dir_in_left_view_by_attr(self, _dir):
         """点击文管的侧边栏目录"""
@@ -98,3 +99,8 @@ class DdeFileManagerMethod(BaseMethod):
     def click_dialog_pop_replace_by_image(self):
         """文件选择对话框, 弹窗的替换按钮"""
         self.click_by_img("dde_file_manager_dialog_pop_replace.png")
+
+    def cp_static_res(self, file_name, dest_path):
+        """复制static_res下的文件到其他路径"""
+        file_path = f"{config.STATIC_RES}/{file_name}"
+        self.run_cmd(f"cp {file_path} {dest_path}")
