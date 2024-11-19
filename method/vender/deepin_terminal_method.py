@@ -17,3 +17,7 @@ class DeepinTerminalMethod(BaseMethod):
     def click_window_min_by_image(self):
         """终端右上角，最小化"""
         self.click_by_img("min_window_btn.png")
+
+    def click_option_dialog_center_by_image(self):
+        """终端右上角，最小化"""
+        self.dog.element_click("DSettingDialogContentWidget")
