@@ -19,7 +19,8 @@ class TestDdeFileManagerCase(BaseCase):
         Src.kill_process("dde-file-manager")
         Src.kill_process("dde-desktop")
         Cmd.run_cmd("rm -rf ~/Documents/*")
-        Cmd.run_cmd("rm -rf ~/Desktop/*")
+        Cmd.run_cmd("rm -f ~/Desktop/test1.txt")
+        sleep(5)
 
     def test_dde_1271279_1(self):
         """文件管理器——保存文件"""

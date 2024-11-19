@@ -38,6 +38,10 @@ class BaseMethod(Src):
         """通过ocr识别双击"""
         self.double_click(*self.ocr(text))
 
+    def get_x_y_by_img(self, img_name):
+        """通过图像，获取坐标"""
+        return self.find_image(f"{config.IMAGE_RES}/{img_name}")
+
     def click_by_img(self, img_name):
         """通过图像识别点击"""
         self.click(*self.find_image(f"{config.IMAGE_RES}/{img_name}"))
