@@ -65,4 +65,3 @@ class TestDeepinTerminalCase(BaseCase):
         Src.ctrl_alt_t()
         sleep(3)
         self.assert_true(Src.get_process_status("deepin-terminal"))
-

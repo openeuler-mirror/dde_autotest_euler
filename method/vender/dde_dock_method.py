@@ -13,6 +13,7 @@ class DdeDockMethod(BaseMethod):
     def right_click_by_attr(self, path):
         """在任务栏中通过元素右键点击"""
         self.dog.element_click(path, button=3)
+
     def click_dde_file_manager_by_attr(self):
         """在任务栏点击文件管理器"""
         self.click_by_attr("Btn_文件管理器")
@@ -48,3 +49,7 @@ class DdeDockMethod(BaseMethod):
     def right_click_trash_icon_by_attr(self):
         """在任务栏中通过元素点击右下角回收站"""
         self.right_click_by_attr("Btn_trash")
+
+    def get_x_y_terminal_icon_by_attr(self):
+        """在任务栏中，鼠标移动到终端图标"""
+        return self.dog.element_center("Btn_终端")
