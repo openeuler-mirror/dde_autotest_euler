@@ -23,7 +23,7 @@ class TestDdeCase(BaseCase):
         self.assert_ocr_exist("概况", "处理器", "CPU数量", "内存")
 
     def teardown_method(self):
-        """通过命令删除测试文件，关闭设备管理器以及文本编辑器器"""
+        """通过命令删除测试文件，关闭设备管理器以及文本编辑器"""
         DdeMethod().kill_process("deepin-devicemanager")
         DdeMethod().kill_process("deepin-editor")
         DdeMethod().dde_dock.delete_all_file_in_documents_by_cmd()
