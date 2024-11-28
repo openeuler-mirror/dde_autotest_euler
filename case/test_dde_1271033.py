@@ -6,7 +6,7 @@ from apps.dde_autotest_euler.method.vender.dde_control_center_method import DdeC
 
 class TestDdeCase(BaseCase):
     def test_dde_1271033(self):
-        """在删除账户(当前登陆)"""
+        """在删除账户(当前登录)"""
         DdeMethod().dde_dock.click_control_center_btn_by_attr()
         sleep(6)
         DdeControlCenterMethod().enter_view_by_search_box("zhanghu")
