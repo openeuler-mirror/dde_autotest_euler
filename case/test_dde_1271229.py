@@ -24,8 +24,6 @@ class TestDdeCase(BaseCase):
         process_num = Src.get_daemon_process_num("fcitx-config-gtk3")
         self.assert_equal(0, process_num)
 
-
-
-    # def teardown_method(self):
-    #     """通过命令关闭日志收集工具"""
-    #     DdeMethod().kill_process("fcitx-config-gtk3")
+    def teardown_method(self):
+        """通过命令关闭日志收集工具"""
+        DdeMethod().kill_process("fcitx-config-gtk3")
