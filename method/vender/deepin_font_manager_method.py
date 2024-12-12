@@ -11,18 +11,38 @@ class DeepinFontManagerMethod(BaseMethod):
         """在字体管理器中通过元素点击"""
         self.dog.element_click(path)
 
+    def method_click_font_by_ocr(self, font_name):
+        self.click_by_ocr(font_name)
+
     def method_click_search_box_attr(self):
         """在字体管理器中点击搜索框"""
         self.method_click_by_attr("DSearchEditIconButton")
 
-    def method_click_menu(self):
+    def method_click_menu_by_image(self):
         """字体管理其中点击菜单"""
         self.click_by_img("dde_fonts_menu_icon.png")
-        # self.method_click_by_attr("添加字体")
 
-    def method_click_add_font(self):
+    def method_click_add_font_by_ocr(self):
         """菜单添加字体"""
         self.click(*self.ocr("添加字体"))
+
+    def method_click_activated_by_ocr(self):
+        """点击已激活"""
+        self.click(*self.ocr("已激活"))
+
+    def method_click_user_fonts_by_ocr(self):
+        """点击用户字体"""
+        self.click(*self.ocr("用户字体"))
+
+    def method_forbidden_font_by_ocr(self, font_name):
+        """禁用字体"""
+        self.right_click(*self.ocr(font_name))
+        self.right_click(*self.ocr("禁用字体"))
+
+    def method_active_font_by_ocr(self, font_name):
+        """启用字体"""
+        self.right_click(*self.ocr(font_name))
+        self.right_click(*self.ocr("启用字体"))
 
     def method_search_fonts(self, fonts_path):
         """字体文件路径查找字体"""
@@ -32,29 +52,19 @@ class DeepinFontManagerMethod(BaseMethod):
         Src.enter()
         sleep(2)
 
-    def method_import_one_fonts(self):
+    def method_import_one_fonts_by_ocr(self, font_name="fangzhenglvjiandexingkai"):
         """选择一个字体添加"""
-        self.click_by_ocr("fangzhenglvjiandexingkai")
+        self.click_by_ocr(font_name)
         self.click(*self.ocr("打开"))
 
-    def method_import_many_fonts(self):
+    def method_import_many_fonts_by_ocr(self):
         """添加多个字体"""
         self.click_by_ocr("fangzhenglvjiandexingkai")
         Src.ctrl_a()
         self.click(*self.ocr("打开"))
 
-    def search_font_in_font_manager(self, font_name):
-        """在字体管理器中搜索字体"""
-        self.deepin_font_manager.method_click_search_box_attr()
-        self.input_message(font_name)
-        sleep(3)
-        self.enter()
-
-    def method_del_font(self, font_name=None):
+    def method_del_font(self):
         """删除字体"""
-        if font_name:
-            self.search_font_in_font_manager(font_name)
-            self.click_by_ocr(font_name)
         Src.delete()
         self.click_by_img("dde_fonts_delete_btn_icon.png")
 
