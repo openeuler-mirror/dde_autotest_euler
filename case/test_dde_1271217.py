@@ -9,6 +9,7 @@ from src import CmdCtl as Cmd
 class TestSrfCase(BaseCase):
 
     def test_dde_1271217(self):
+        """输入法添加中文"""
         Cmd.sudo_run_cmd("yum install ibus-libpinyin -y")
         euler = DdeMethod()
         euler.dde_dock.right_click_by_img("test_dde_1271217_1.png")
@@ -36,4 +37,10 @@ class TestSrfCase(BaseCase):
         euler.dde_dock.click_by_img("test_dde_1271217_9.png")
         self.assert_image_exist_in_dde("test_dde_1271217_10.png")
 
+        # 恢复输入法
+        euler.dde_dock.click_by_img("test_dde_1271217_10.png")
+        sleep(1)
+        euler.dde_dock.click_by_img("test_dde_1271217_13.png")
+        sleep(1)
+        self.assert_image_exist_in_dde("test_dde_1271217_1.png")
 
