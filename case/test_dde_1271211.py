@@ -13,10 +13,10 @@ class TestFontAddCase(BaseCase):
         sleep(6)
         DeepinFontManagerMethod().method_click_menu_by_image()
         DeepinFontManagerMethod().method_click_add_font_by_ocr()
-        DeepinFontManagerMethod().method_search_fonts("dde_autotest_euler/method/static_res/fonts/fangzheng")
+        DeepinFontManagerMethod().method_search_fonts_by_image("dde_autotest_euler/method/static_res/fonts/fangzheng")
         DeepinFontManagerMethod().method_import_one_fonts_by_ocr()
         self.assert_ocr_exist("吕建德字体")
-        DeepinFontManagerMethod().method_del_font()
+        DeepinFontManagerMethod().method_del_font_by_image()
         sleep(3)
 
     def test_dde_1271211_2(self):
@@ -25,11 +25,11 @@ class TestFontAddCase(BaseCase):
         sleep(6)
         DeepinFontManagerMethod().method_click_menu_by_image()
         DeepinFontManagerMethod().method_click_add_font_by_ocr()
-        DeepinFontManagerMethod().method_search_fonts("dde_autotest_euler/method/static_res/fonts/fangzheng")
+        DeepinFontManagerMethod().method_search_fonts_by_image("dde_autotest_euler/method/static_res/fonts/fangzheng")
         DeepinFontManagerMethod().method_import_many_fonts_by_ocr()
         self.assert_ocr_exist("吕建德字体")
         self.assert_ocr_exist("真广标简体")
-        DeepinFontManagerMethod().method_del_font()
+        DeepinFontManagerMethod().method_del_font_by_image()
         sleep(2)
 
     def teardown_method(self):
