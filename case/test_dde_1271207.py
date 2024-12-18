@@ -14,7 +14,7 @@ class TestFontForbiddenCase(BaseCase):
         font = DeepinFontManagerMethod()
         font.method_click_menu_by_image()
         font.method_click_add_font_by_ocr()
-        font.method_search_fonts("dde_autotest_euler/method/static_res/fonts/NotoSansLinearB")
+        font.method_search_fonts_by_image("dde_autotest_euler/method/static_res/fonts/NotoSansLinearB")
         font.method_import_one_fonts_by_ocr("NotoSansLinearB-Regular")
         sleep(3)
 
@@ -36,7 +36,7 @@ class TestFontForbiddenCase(BaseCase):
         self.assert_ocr_exist("Noto Sans Linear B-Regular")
 
         font.method_click_font_by_ocr("Noto Sans Linear B-Regular")
-        DeepinFontManagerMethod().method_del_font()
+        DeepinFontManagerMethod().method_del_font_by_image()
         # sleep(3)
 
     def teardown_method(self):

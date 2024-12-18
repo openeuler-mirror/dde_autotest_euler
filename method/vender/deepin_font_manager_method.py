@@ -12,6 +12,7 @@ class DeepinFontManagerMethod(BaseMethod):
         self.dog.element_click(path)
 
     def method_click_font_by_ocr(self, font_name):
+        """通过ocr点击字体"""
         self.click_by_ocr(font_name)
 
     def method_click_search_box_attr(self):
@@ -44,7 +45,7 @@ class DeepinFontManagerMethod(BaseMethod):
         self.right_click(*self.ocr(font_name))
         self.right_click(*self.ocr("启用字体"))
 
-    def method_search_fonts(self, fonts_path):
+    def method_search_fonts_by_image(self, fonts_path):
         """字体文件路径查找字体"""
         self.click_by_img("dde_fonts_search_icon.png")
         Src.input_message(fonts_path)
@@ -63,7 +64,7 @@ class DeepinFontManagerMethod(BaseMethod):
         Src.ctrl_a()
         self.click(*self.ocr("打开"))
 
-    def method_del_font(self):
+    def method_del_font_by_image(self):
         """删除字体"""
         Src.delete()
         self.click_by_img("dde_fonts_delete_btn_icon.png")
