@@ -58,4 +58,5 @@ class TestDdeCase(BaseCase):
         yield
         Src.kill_process("deepin-screen-recorder")
         Src.run_cmd("rm -rf ~/Pictures/Screenshots/*")
+        Src.run_cmd("rm -rf ~/.config/deepin/deepin-screen-recorder.conf")
         sleep(3)
