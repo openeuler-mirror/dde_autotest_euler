@@ -23,6 +23,7 @@ from apps.dde_autotest_euler.method.vender.deepin_draw_method import DeepinDrawM
 from apps.dde_autotest_euler.method.vender.deepin_system_monitor_method import DeepinSystemMonitorMethod
 from apps.dde_autotest_euler.method.vender.deepin_terminal_method import DeepinTerminalMethod
 from apps.dde_autotest_euler.method.vender.dde_file_manager_method import DdeFileManagerMethod
+from apps.dde_autotest_euler.method.vender.deepin_screen_recorder_method import DeepinScreenRecorderMethod
 
 from src import log
 from src.shortcut import ShortCut
@@ -91,6 +92,10 @@ class DdeMethod(Src):
     def dde_file_manager(self):
         return DdeFileManagerMethod()
 
+    @property
+    def deepin_screen_recorder(self):
+        return DeepinScreenRecorderMethod()
+    
     def open_software_by_launcher(self, text):
         """通过启动器打开软件"""
         self.dde_dock.click_launcher_btn_by_attr()
