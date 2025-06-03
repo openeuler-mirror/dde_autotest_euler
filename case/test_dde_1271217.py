@@ -1,4 +1,4 @@
-import os
+import pytest
 from apps.dde_autotest_euler.case.base_case import BaseCase
 from apps.dde_autotest_euler.method.dde_method import DdeMethod
 from src import sleep
