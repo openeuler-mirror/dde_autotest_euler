@@ -29,7 +29,7 @@ DDE Autotest for openEuler, based on [YouQu](https://youqu.uniontech.com/).
 建议新建一个普通管理员用户：**uos**
 
 ```bash
-sudo pip3 install youqu
+sudo pip3 install youqu-framework
 # 初始化工程
 youqu-startproject dde
 # 克隆用例仓库
@@ -68,6 +68,17 @@ PASSWORD = <PASSWORD>
 ```bash
 cd dde/
 bash env.sh -D
+```
+
+**安装截图工具**
+```
+sudo yum install xcomposite xfixes xinerama -y # 工具依赖
+wget https://github.com/resurrecting-open-source-projects/scrot/releases/download/1.12.1/scrot-1.12.1.tar.gz
+tar -xf scrot-1.12.1.tar.gz 
+cd scrot-1.12.1
+./configure
+make
+sudo make install
 ```
 
 ## 运行
