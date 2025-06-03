@@ -13,4 +13,4 @@ class DeepinFcitxConfigMethod(BaseMethod):
 
     def close_by_menu(self):
         self.right_click_by_ocr("输入法配置")
-        self.click_by_ocr("×关闭（C)")
+        self.click_by_ocr("关闭")
