@@ -104,3 +104,7 @@ class DdeFileManagerMethod(BaseMethod):
         """复制static_res下的文件到其他路径"""
         file_path = f"{config.STATIC_RES}/{file_name}"
         self.run_cmd(f"cp {file_path} {dest_path}")
+    
+    def click_window_min_by_image(self):
+        """终端右上角，最小化"""
+        self.click_by_img("min_window_btn.png")
