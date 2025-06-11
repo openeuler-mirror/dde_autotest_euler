@@ -32,6 +32,8 @@ DDE Autotest for openEuler, based on [YouQu](https://youqu.uniontech.com/).
 sudo pip3 install youqu-framework
 # 初始化工程
 youqu-startproject dde
+# 安装git
+sudo yum install git -y
 # 克隆用例仓库
 cd dde/apps/
 git clone https://gitee.com/openeuler/dde_autotest_euler.git
