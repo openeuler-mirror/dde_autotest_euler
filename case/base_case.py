@@ -6,6 +6,6 @@
 """
 
 from apps.dde_autotest_euler.method.assert_method import AssertMethod
-
-class BaseCase(AssertMethod):
+from apps.dde_autotest_euler.module.dde_dock.dde_dock_assert import DdeDockAssert
+class BaseCase(AssertMethod, DdeDockAssert):
     """用例基类"""
