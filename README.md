@@ -74,7 +74,7 @@ bash env.sh -D
 
 **安装截图工具**
 ```
-sudo yum install automake autoconf autoconf-archive xcomposite xfixes xinerama libXcomposite-devel imlib2-devel libXext-devel libXfixes-devel libXinerama-devel -y # 工具依赖
+sudo yum install automake autoconf autoconf-archive libXcomposite imlib2 libXext  libXfixes libXinerama libXcomposite-devel imlib2-devel libXext-devel libXfixes-devel libXinerama-devel -y # 工具依赖
 wget https://github.com/resurrecting-open-source-projects/scrot/releases/download/1.12.1/scrot-1.12.1.tar.gz
 tar -xf scrot-1.12.1.tar.gz 
 cd scrot-1.12.1
