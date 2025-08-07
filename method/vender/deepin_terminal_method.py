@@ -21,3 +21,11 @@ class DeepinTerminalMethod(BaseMethod):
     def click_option_dialog_center_by_image(self):
         """终端右上角，最小化"""
         self.dog.element_click("DSettingDialogContentWidget")
+
+    def click_menu_btn_by_attr(self):
+        """点击右上角菜单按钮"""
+        self.dog.element_click("DTitlebarDWindowOptionButton")
+
+    def click_menu_about_btn_by_attr(self):
+        """点击关于按钮"""
+        self.click_by_ocr("关于")
