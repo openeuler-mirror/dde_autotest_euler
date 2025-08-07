@@ -1,0 +1,20 @@
+from apps.dde_autotest_euler.case.base_case import BaseCase
+from apps.dde_autotest_euler.method.dde_method import DdeMethod
+from src import sleep
+from src import Src
+
+
+class TestDdeCase(BaseCase):
+    def test_dde_1916659(self):
+        """控制中心中账户选项显示"""
+        euler = DdeMethod()
+        euler.dde_dock.click_control_center_btn_by_attr()
+        sleep(6)
+        euler.dde_dock.click_by_img("control_account_btn.png")
+        sleep(6)
+        self.assert_ocr_exist("自动登录", "无密码登录", "密码有效天数")
+
+
+    def teardown_method(self):
+        """关闭控制中心"""
+        DdeMethod().dde_control_center.kill_dde_control_center()
