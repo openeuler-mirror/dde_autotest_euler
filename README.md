@@ -32,8 +32,8 @@ DDE Autotest for openEuler, based on [YouQu](https://youqu.uniontech.com/).
 sudo pip3 install youqu-framework
 # 初始化工程
 youqu-startproject dde
-# 安装git
-sudo yum install git -y
+# 安装编辑工具、ibus输入法,在ibus首选项中添加中文输入法
+sudo yum install vim ibus-libpinyin -y
 # 克隆用例仓库
 cd dde/apps/
 git clone https://gitee.com/openeuler/dde_autotest_euler.git
@@ -56,7 +56,8 @@ dde/apps/
 
 配置文件：
 ```bash
-setting/globalconfig.ini
+cd dde/
+vim setting/globalconfig.ini
 ```
 
 修改配置文件：
@@ -73,15 +74,15 @@ bash env.sh -D
 ```
 
 **安装截图工具**
+```bash
+cd dde/apps/dde_autotest_euler/tools/
+bash install_scrot.sh
 ```
-sudo yum install automake autoconf autoconf-archive libXcomposite imlib2 libXext  libXfixes libXinerama libXcomposite-devel imlib2-devel libXext-devel libXfixes-devel libXinerama-devel -y # 工具依赖
-wget https://github.com/resurrecting-open-source-projects/scrot/releases/download/1.12.1/scrot-1.12.1.tar.gz
-tar -xf scrot-1.12.1.tar.gz 
-cd scrot-1.12.1
-sudo ./autogen.sh
-./configure
-make
-sudo make install
+
+**安装xdotool工具**
+```bash
+cd dde/apps/dde_autotest_euler/tools/
+bash install_xdotool.sh
 ```
 
 ## 运行
