@@ -30,6 +30,6 @@ class TestDdeCase(BaseCase):
     def setup_teardown_1918249(self):
         """前置和后置"""
         yield
-        #【后置】:1.关闭控制中心
+        #【后置】:1.移动鼠标,取消hover
         dock = DdeDockPublicWidget()
         dock.move_to(960,540)
