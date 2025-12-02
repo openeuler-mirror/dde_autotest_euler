@@ -55,3 +55,29 @@ class DdeDockAssert(AssertCommon):
         logging.info("断言任务栏位置是否: %s", location_text)
         dock_location = DockDbus.get_position()
         AssertCommon.assert_true(dock_location == location)
+
+    @staticmethod
+    def assert_dock_size(size):
+        """断言任务栏大小"""
+        mode_conf = {
+            "efficient": int(1),
+            "fashion": int(0)
+        }
+        size_conf = {
+            "min": int(40),
+            "max": int(100)
+        }
+
+        if size_conf['min'] == size:
+            size_text = "小"
+        elif size_conf['max'] == size:
+            size_text = "大"
+        else:
+            raise AssertionError(f"任务栏大小参数<{size}>未知!")
+        logging.info("断言任务栏大小是否: %s", size_text)
+        dock_mode = DockDbus.get_display_mode()        
+        if mode_conf['efficient'] == dock_mode:
+            dock_size = DockDbus.get_window_size_efficient()
+        elif mode_conf['fashion'] == dock_mode:
+            dock_size = DockDbus.get_window_size_fashion()
+        AssertCommon.assert_true(dock_size == size)
