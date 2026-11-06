@@ -1,0 +1,70 @@
+/**
+ * 用例 PMSID: 1978583
+ * 用例标题: 【V25】【Microsoft Edge_玲珑】通过收藏栏打开网址
+ * 用例编写人:UT006345（田博文）
+ * 生成时间: 2026-01-30 17:38:03
+ */
+
+describe('1978583-【V25】【Microsoft Edge_玲珑】通过收藏栏打开网址', () => {
+ beforeAll(async ({ device, uos, agent,system,env}) => {
+    console.log('1. beforeAll: 初始化测试套件');
+    await uos.minimizeWindow();
+    const installCmd = `echo '${env.testPassword}' | sudo -S ll-cli install com.browser.softedge.stable`;
+    await system.exec(installCmd);
+    for (let i = 0; i < 40; i++) {
+      await system.exec('busctl --user call org.desktopspec.ApplicationManager1 /org/desktopspec/ApplicationManager1 org.desktopspec.ApplicationManager1 ReloadApplications 2>/dev/null; sleep 4');
+      const checkResult = await system.exec('busctl --user get-property org.desktopspec.ApplicationManager1 /org/desktopspec/ApplicationManager1 org.desktopspec.ApplicationManager1 List 2>/dev/null | grep -q microsoft_2dedge');
+      if (checkResult.exitCode === 0) {
+        console.log(`Edge 已出现在启动器应用列表（第 ${i + 1} 次检查）`);
+        break;
+      }
+    }
+    await uos.openLauncher();
+    console.log('已打开启动器');
+    await uos.searchInLauncher("Microsoft Edge");
+    await agent.aiWaitFor("启动器界面出现Microsoft Edge应用",{timeoutMs:120000});
+    await uos.showDesktop();
+  });
+
+  beforeEach(async ({ device, agent }) => {
+    console.log('2. beforeEach: 每个测试前的准备');
+  });
+
+  test('1978583-【V25】【Microsoft Edge_玲珑】通过收藏栏打开网址', async ({ device, agent, uos }) => {
+   await uos.openLauncher();
+    await agent.aiWaitFor("启动器界面已显示");
+    await uos.searchInLauncher("Microsoft Edge");
+    await agent.aiWaitFor("启动器搜索结果中出现Microsoft Edge应用图标");
+    await device.pressKey("Enter");
+    await uos.maximizeWindow();
+    await agent.aiAssert("Microsoft Edge浏览器已打开");
+    await device.pressKey("Ctrl","L");
+    await device.typeText("www.baidu.com",true);
+    await agent.aiWaitFor("百度界面已显示");
+    await agent.aiAssert("百度界面已打开");
+    await agent.aiTap("浏览器顶部网址输入栏最右侧的'☆'");
+    await agent.aiWaitFor("已添加到收藏夹弹窗出现");
+    await agent.aiAssert("弹窗已出现");
+    await agent.aiTap("完成");
+    await device.pressKey("Ctrl","T");
+    await agent.aiWaitFor("新建标签页出现");
+    await agent.aiAssert("新建标签页顶部输入栏下方出现【百度一下，你···】字样");
+    await agent.aiTap("页面顶部输入栏下方【百度一下，你···】字样");
+    await agent.aiWaitFor("百度页面打开");
+    await agent.aiAssert("百度界面已打开");
+  }, { timeout: 600000, tags: ['1978583', 'level3'] });
+
+  afterEach(async ({ device }) => {
+    console.log('4. afterEach: 每个测试后的清理');
+  });
+
+  afterAll(async ({ uos, agent, device, system,env}) => {
+    console.log('5. afterAll: 清理测试套件');
+    await agent.aiTap("浏览器顶部网址输入栏最右侧被蓝色填充的'☆'");
+    await agent.aiWaitFor("编辑收藏夹弹窗出现");
+    await agent.aiTap('删除');
+    await uos.closeCurrentWindow();
+    const uninstallCmd = `echo '${env.testPassword}' | sudo -S ll-cli uninstall com.browser.softedge.stable`;
+    await system.exec(uninstallCmd);
+  });
+});
